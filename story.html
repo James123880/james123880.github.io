@@ -1,114 +1,90 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>耶稣的故事</title>
+<meta charset="UTF-8">
 
-    <style>
-        body {
-       body {
-    margin: 0;
-    ...
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  text-align: center;
 }
 
-h1 {
-    text-shadow: ...
-}
-
-/* 👇 就加在这里 */
-.glow {
-    font-size: 48px;
-    font-weight: bold;
-    color: white;
-    text-shadow:
-        0 0 10px #fff,
-        0 0 20px #ffd700,
-        0 0 40px #ff8c00,
-        0 0 80px #ff4500;
+.container {
+  background: rgba(0,0,0,0.4);
+  padding: 30px;
+  border-radius: 15px;
 }
 
 button {
-    ...
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  background: #0077b6;
+  color: white;
+  cursor: pointer;
 }
-}
-
-    button {
-        padding: 10px 20px;
-        margin: 10px;
-        border-radius: 8px;
-        border: none;
-        background: #0077b6;
-        color: white;
-        font-size: 16px;
-        cursor: pointer;
-    }
-
-    button:hover {
-        background: #005f8a;
-    }
-    </style>
-
+</style>
+button:hover {
+  background: #005f8a;
+}</style>
 </head>
-</div>    
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    height: 100vh;
-    text-align: center;
-}
-<div class="container">
-    <body>
-.container {
-    background: rgba(0,0,0,0.4);
-    padding: 30px;
-    border-radius: 15px;
-}
-<body>
-
-<!-- 语言按钮 -->
+<body>    
 <div style="position:absolute; top:20px; right:20px;">
   <button onclick="setLang('zh')">中文</button>
   <button onclick="setLang('en')">English</button>
   <button onclick="setLang('fr')">Français</button>
 </div>
 
-<!-- 内容 -->
 <div class="container">
-  <h1 id="title">神爱你 ❤️</h1>
+  <h1 id="title"></h1>
+  <p id="p1"></p>
+  <p id="p2"></p>
+  <p id="p3"></p>
 
-  <p id="p1">...</p>
-  <p id="p2">...</p>
-  <p id="p3">...</p>
-
-  <button id="btn1">🙏 我愿意相信</button>
+  <button id="btn1"></button>
   <br><br>
-  <button id="btn2">返回首页</button>
+  <button id="btn2"></button>
 </div>
 
-<!-- JS 放最后 -->
 <script>
 function setLang(lang) {
-   if (lang === 'zh') {
-      document.getElementById("title").innerText = "神爱你 ❤️";
-      ...
-   }
+  if (lang === 'zh') {
+    title.innerText = "神爱你 ❤️";
+    p1.innerText = "耶稣来到世上，医治病人...";
+    p2.innerText = "他说：神爱世人。";
+    p3.innerText = "他为我们的罪被钉十字架...";
+    btn1.innerText = "🙏 我愿意相信";
+    btn2.innerText = "返回首页";
+  }
 
-   if (lang === 'en') {
-      ...
-   }
+  if (lang === 'en') {
+    title.innerText = "God Loves You ❤️";
+    p1.innerText = "Jesus came to the world...";
+    p2.innerText = "He said: God loves the world.";
+    p3.innerText = "He died for our sins...";
+    btn1.innerText = "🙏 Pray";
+    btn2.innerText = "Back Home";
+  }
 
-   if (lang === 'fr') {
-      ...
-   }
+  if (lang === 'fr') {
+    title.innerText = "Dieu t'aime ❤️";
+    p1.innerText = "Jésus est venu...";
+    p2.innerText = "Il a dit : Dieu aime le monde.";
+    p3.innerText = "Il est mort pour nos péchés...";
+    btn1.innerText = "🙏 Prier";
+    btn2.innerText = "Accueil";
+  }
 }
 
-// 默认语言
 setLang('zh');
 </script>
 
 </body>
+</html>
