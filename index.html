@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <html lang="zh">
-<head>
+<head><audio id="bgm" autoplay loop muted>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("bgm");
+
+// 用户第一次点击页面 → 开启声音 + 淡入
+document.body.addEventListener('click', () => {
+  music.muted = false;
+  music.volume = 0;
+
+  let vol = 0;
+  const fade = setInterval(() => {
+    if (vol < 1) {
+      vol += 0.02;
+      music.volume = vol;
+    } else {
+      clearInterval(fade);
+    }
+  }, 100);
+
+  music.play();
+}, { once: true });
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>神爱你 ❤️</title>
@@ -39,11 +63,16 @@ h1 {
 </style>
 
 </head>
+<body>
 
+<audio ...></audio>
+<script>...</script>
+
+<div class="container">
 <audio id="bgm" loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
-
+music.volume = 0.1; // 初始更轻
 <button onclick="playMusic()">
   🎵 点击开启音乐
 </button>
