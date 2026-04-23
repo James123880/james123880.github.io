@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>James Faith</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: black;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* 每一屏 */
+        section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* 淡入动画 */
+        .fade {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s ease;
+        }
+
+        .fade.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 标题 */
+        h1 {
+            font-size: 40px;
+            color: gold;
+            text-shadow: 0 0 15px gold;
+        }
+
+        p {
+            font-size: 18px;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* 按钮 */
+        .btn {
+            margin-top: 30px;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            background: gold;
+            color: black;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            background: orange;
+            box-shadow: 0 0 20px orange;
+        }
+
+        /* 背景渐变 */
+        .bg1 { background: linear-gradient(to bottom, black, #111); }
+        .bg2 { background: linear-gradient(to bottom, #111, #222); }
+        .bg3 { background: linear-gradient(to bottom, #222, black); }
+
+    </style>
+</head>
+
+<body>
+
+<!-- 第一屏 -->
+<section class="bg1">
+    <div class="fade">
+        <h1>🙏 神爱你</h1>
+        <p>约翰福音 3:16</p>
+    </div>
+</section>
+
+<!-- 第二屏 -->
+<section class="bg2">
+    <div class="fade">
+        <p>
+        神爱世人，甚至将他的独生子赐给他们，
+        叫一切信他的，不至灭亡，反得永生。
+        </p>
+    </div>
+</section>
+
+<!-- 第三屏 -->
+<section class="bg3">
+    <div class="fade">
+        <p>
+        For God so loved the world that He gave His one and only Son,
+        that whoever believes in Him shall not perish but have eternal life.
+        </p>
+
+        <button class="btn" onclick="window.location.href='pray.html'">
+            🙏 Pray Now
+        </button>
+    </div>
+</section>
+
+<script>
+    const faders = document.querySelectorAll('.fade');
+
+    function showOnScroll() {
+        const trigger = window.innerHeight * 0.85;
+
+        faders.forEach(el => {
+            const top = el.getBoundingClientRect().top;
+
+            if (top < trigger) {
+                el.classList.add('show');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', showOnScroll);
+    window.addEventListener('load', showOnScroll);
+</script>
+
+</body>
+</html>
