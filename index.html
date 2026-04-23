@@ -1,37 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh">
-<head><audio id="bgm" autoplay loop muted>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-const music = document.getElementById("bgm");
-
-// 用户第一次点击页面 → 开启声音 + 淡入
-document.body.addEventListener('click', () => {
-  music.muted = false;
-  music.volume = 0;
-
-  let vol = 0;
-  const fade = setInterval(() => {
-    if (vol < 1) {
-      vol += 0.02;
-      music.volume = vol;
-    } else {
-      clearInterval(fade);
-    }
-  }, 100);
-
-  music.play();
-}, { once: true });
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>神爱你 ❤️</title>
-
-<style>
-body{<!DOCTYPE html>
-<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <title>十字架上的爱</title>
@@ -187,88 +155,6 @@ document.body.addEventListener('click', () => {
 
 <!-- 音乐按钮 -->
 <button class="music-btn" onclick="music.play()">🎵</button>
-
-</body>
-</html>
-    margin: 0;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background: url('jesus.jpg');no-repeat center center fixed;
-background-size: cover;
-color: white;
-
-.container {
-    padding: 60px 20px;
-}
-
-h1 {
-    color: #d62828;
-}
-
-.btn {
-    padding: 15px 25px;
-    background: #0077b6;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 18px;
-    cursor: pointer;
-    margin-top: 20px;
-}
-
-.btn:hover {
-    background: #023e8a;
-}
-</style>
-
-</head>
-<body>
-
-<audio ...></audio>
-<script>...</script>
-
-<div class="container">
-<audio id="bgm" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-music.volume = 0.1; // 初始更轻
-<button onclick="playMusic()">
-  🎵 点击开启音乐
-</button>
-
-<script>
-function playMusic() {
-  const music = document.getElementById("bgm");
-  music.play();
-}
-</script>
-    <div class="container">
-
-<h1>神爱你 ❤️</h1>
-
-<p>约翰福音 3:16</p>
-
-<p style="color:red;">
-神爱世人，甚至将他的独生子赐给他们，
-叫一切信他的，不至灭亡，反得永生。
-</p>
-
-<p>
-Are you searching for meaning in life?<br>
-Jesus loves you and offers you new life.
-</p>
-
-<button class="btn" onclick="window.location.href='story.html'">
-📖 阅读耶稣的故事
-</button>
-
-<br>
-
-<button class="btn" onclick="window.location.href='pray.html'">
-🙏 点击祷告
-</button>
-
-</div>
 
 </body>
 </html>
