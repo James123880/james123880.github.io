@@ -40,23 +40,20 @@ h1 {
 
 </head>
 
-<body>
-<button onclick="document.getElementById('bgm').play()">
-  🎵 播放音乐
-</button>
 <audio id="bgm" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>    
-    <audio autoplay loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-<audio id="bgm" autoplay loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<button onclick="document.getElementById('bgm').play()">
+<button onclick="playMusic()">
   🎵 点击开启音乐
 </button>
+
+<script>
+function playMusic() {
+  const music = document.getElementById("bgm");
+  music.play();
+}
+</script>
     <div class="container">
 
 <h1>神爱你 ❤️</h1>
