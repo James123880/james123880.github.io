@@ -156,5 +156,80 @@ document.body.addEventListener('click', () => {
 <!-- 音乐按钮 -->
 <button class="music-btn" onclick="music.play()">🎵</button>
 
-</body>
+</body> <!-- 音乐 -->
+<audio id="bgm" autoplay loop muted>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 音乐按钮 -->
+<button id="musicBtn" onclick="toggleMusic()" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 22px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  cursor: pointer;
+">
+🔇
+</button>
+
+<script>
+const music = document.getElementById("bgm");
+const btn = document.getElementById("musicBtn");
+
+// 第一次点击页面 → 自动开启音乐 + 淡入
+document.body.addEventListener('click', () => {
+  startMusic();
+}, { once: true });
+
+function startMusic() {
+  music.muted = false;
+  music.volume = 0;
+
+  let vol = 0;
+  const fade = setInterval(() => {
+    if (vol < 1) {
+      vol += 0.02;
+      music.volume = vol;
+    } else {
+      clearInterval(fade);
+    }
+  }, 100);
+
+  music.play();
+  btn.innerText = "🎵";
+}
+
+// 按钮控制开关
+function toggleMusic() {
+  if (music.paused) {
+    music.play();
+    btn.innerText = "🎵";
+  } else {
+    music.pause();
+    btn.innerText = "🔇";
+  }<script>
+if (localStorage.getItem("music") === "on") {
+  startMusic();
+}
+
+function toggleMusic() {
+  if (music.paused) {
+    music.play();
+    btn.innerText = "🎵";
+    localStorage.setItem("music", "on");
+  } else {
+    music.pause();
+    btn.innerText = "🔇";
+    localStorage.setItem("music", "off");
+  }
+}
+</script>
+}
+</script>
 </html>
