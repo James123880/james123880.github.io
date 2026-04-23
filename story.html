@@ -50,42 +50,50 @@ button {
 
 </head>
 </div>    
-</body>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
 
-<!-- 🌐 语言按钮 -->
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    text-align: center;
+}
+<div class="container">
+    <body>
+.container {
+    background: rgba(0,0,0,0.4);
+    padding: 30px;
+    border-radius: 15px;
+}
+<!-- 语言按钮 -->
 <div style="position:absolute; top:20px; right:20px;">
     <button onclick="setLang('zh')">中文</button>
     <button onclick="setLang('en')">English</button>
     <button onclick="setLang('fr')">Français</button>
 </div>
 
-<!-- 标题 -->
-<h1 id="title">神爱你 ❤️</h1>
+<!-- ⭐ 核心：加一个容器 -->
+<div class="container">
 
-<!-- 内容 -->
-<p id="p1">耶稣来到世上，医治病人，帮助穷人，传讲神的爱。</p>
-<p id="p2">他说：神爱世人。</p>
-<p id="p3">他为我们的罪被钉十字架，三天后复活。</p>
+    <div class="container">
+    <h1 id="title">神爱你 ❤️</h1>
+    <p id="p1">...</p>
+    ...
+</div>
+    <button id="btn1">🙏 我愿意相信</button>
+    <br><br>
+    <button id="btn2">返回首页</button>
 
-<!-- 按钮 -->
-<button id="btn1">🙏 我愿意相信</button>
-<button id="btn2">返回首页</button>
+</div>
 
+</body>
 <!-- JS 放这里（最重要） -->
 <script>
 function setLang(lang) {
     console.log("语言:", lang);
 
-    if (lang === 'fr') {
-   ...
-}
-else if (lang === 'en') {
-   ...
-}
-else if (lang === 'zh') {
-   ...
-}
-    }
-}
+    
 </script>
-    /body
