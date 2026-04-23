@@ -14,75 +14,94 @@ body {
 
   height: 100vh;
   text-align: center;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: white;
 }
 
 .container {
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.5);
   padding: 30px;
   border-radius: 15px;
+  max-width: 400px;
 }
 
 button {
   padding: 10px 20px;
   margin: 5px;
   border: none;
-  background: #0077b6;
+  background: #00b4d8;
   color: white;
   cursor: pointer;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #0077b6;
+  transform: scale(1.05);
 }
 </style>
-button:hover {
-  background: #005f8a;
-}</style>
+
 </head>
-<body>    
+
+<body>
+
+<!-- 🌐 语言按钮 -->
 <div style="position:absolute; top:20px; right:20px;">
   <button onclick="setLang('zh')">中文</button>
   <button onclick="setLang('en')">English</button>
   <button onclick="setLang('fr')">Français</button>
 </div>
 
+<!-- 📖 内容 -->
 <div class="container">
   <h1 id="title"></h1>
+
   <p id="p1"></p>
   <p id="p2"></p>
   <p id="p3"></p>
 
-  <button id="btn1"></button>
+  <!-- 🙏 跳转祷告页 -->
+  <button onclick="window.location.href='pray.html'" id="btn1"></button>
+
   <br><br>
-  <button id="btn2"></button>
+
+  <!-- 🔙 返回首页 -->
+  <button onclick="window.location.href='index.html'" id="btn2"></button>
 </div>
 
 <script>
 function setLang(lang) {
+
   if (lang === 'zh') {
     title.innerText = "神爱你 ❤️";
-    p1.innerText = "耶稣来到世上，医治病人...";
-    p2.innerText = "他说：神爱世人。";
-    p3.innerText = "他为我们的罪被钉十字架...";
+    p1.innerText = "耶稣来到世上，医治病人，帮助穷人，传讲神的爱。";
+    p2.innerText = "他说：“神爱世人。”";
+    p3.innerText = "他为我们的罪被钉十字架，三天后复活。";
     btn1.innerText = "🙏 我愿意相信";
     btn2.innerText = "返回首页";
   }
 
   if (lang === 'en') {
     title.innerText = "God Loves You ❤️";
-    p1.innerText = "Jesus came to the world...";
-    p2.innerText = "He said: God loves the world.";
-    p3.innerText = "He died for our sins...";
-    btn1.innerText = "🙏 Pray";
+    p1.innerText = "Jesus came to the world, healed the sick and helped the poor.";
+    p2.innerText = "He said: 'God loves the world.'";
+    p3.innerText = "He died for our sins and rose again after three days.";
+    btn1.innerText = "🙏 I Want to Believe";
     btn2.innerText = "Back Home";
   }
 
   if (lang === 'fr') {
     title.innerText = "Dieu t'aime ❤️";
-    p1.innerText = "Jésus est venu...";
+    p1.innerText = "Jésus est venu dans le monde, guérit les malades.";
     p2.innerText = "Il a dit : Dieu aime le monde.";
-    p3.innerText = "Il est mort pour nos péchés...";
-    btn1.innerText = "🙏 Prier";
+    p3.innerText = "Il est mort pour nos péchés et est ressuscité.";
+    btn1.innerText = "🙏 Je crois";
     btn2.innerText = "Accueil";
   }
 }
 
+// 默认语言
 setLang('zh');
 </script>
 
