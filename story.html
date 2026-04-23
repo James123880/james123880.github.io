@@ -49,51 +49,43 @@ button {
     </style>
 
 </head>
+</div>    
+</body>
 
-<body><div>
+<!-- 🌐 语言按钮 -->
+<div style="position:absolute; top:20px; right:20px;">
     <button onclick="setLang('zh')">中文</button>
     <button onclick="setLang('en')">English</button>
     <button onclick="setLang('fr')">Français</button>
 </div>
 
-<h1 class="glow">神爱你 ❤️</h1>
+<!-- 标题 -->
+<h1 id="title">神爱你 ❤️</h1>
 
-<p>耶稣来到世上，医治病人，帮助穷人，传讲神的爱。</p>
-<p>他说：“神爱世人。”</p>
-<p>他为我们的罪被钉十字架，三天后复活。</p>
+<!-- 内容 -->
+<p id="p1">耶稣来到世上，医治病人，帮助穷人，传讲神的爱。</p>
+<p id="p2">他说：神爱世人。</p>
+<p id="p3">他为我们的罪被钉十字架，三天后复活。</p>
 
-<button onclick="location.href='pray.html'">🙏 我愿意相信</button>
-<br><br>
-<button onclick="location.href='index.html'">返回首页</button>
+<!-- 按钮 -->
+<button id="btn1">🙏 我愿意相信</button>
+<button id="btn2">返回首页</button>
 
+<!-- JS 放这里（最重要） -->
 <script>
 function setLang(lang) {
-    if (lang === 'zh') {
-        document.getElementById("title").innerText = "神爱你 ❤️";
-        document.getElementById("p1").innerText = "耶稣来到世上，医治病人，帮助穷人，传讲神的爱。";
-        document.getElementById("p2").innerText = "他说：“神爱世人。”";
-        document.getElementById("p3").innerText = "他为我们的罪被钉十字架，三天后复活。";
-        document.getElementById("btn1").innerText = "🙏 我愿意相信";
-        document.getElementById("btn2").innerText = "返回首页";
-    }
-
-    if (lang === 'en') {
-        document.getElementById("title").innerText = "God Loves You ❤️";
-        document.getElementById("p1").innerText = "Jesus came to the world, healed the sick, helped the poor, and shared God's love.";
-        document.getElementById("p2").innerText = "He said: 'God loves the world.'";
-        document.getElementById("p3").innerText = "He died on the cross for our sins and rose again after three days.";
-        document.getElementById("btn1").innerText = "🙏 I Want to Believe";
-        document.getElementById("btn2").innerText = "Back to Home";
-    }
+    console.log("语言:", lang);
 
     if (lang === 'fr') {
-        document.getElementById("title").innerText = "Dieu t’aime ❤️";
-        document.getElementById("p1").innerText = "Jésus est venu dans le monde, a guéri les malades, aidé les pauvres et partagé l'amour de Dieu.";
-        document.getElementById("p2").innerText = "Il a dit : 'Dieu aime le monde.'";
-        document.getElementById("p3").innerText = "Il est mort sur la croix pour nos péchés et est ressuscité après trois jours.";
-        document.getElementById("btn1").innerText = "🙏 Je veux croire";
-        document.getElementById("btn2").innerText = "Retour à l'accueil";
+   ...
+}
+else if (lang === 'en') {
+   ...
+}
+else if (lang === 'zh') {
+   ...
+}
     }
 }
-</script></body>
-</html>
+</script>
+    /body
