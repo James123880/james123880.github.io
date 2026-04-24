@@ -48,7 +48,7 @@ h1 {
 }
 
 /* 滚动出现 */
-.block.show {
+.block {
   opacity: 1;
   transform: translateY(0);
 }
@@ -182,7 +182,9 @@ function setLang(lang) {
 
 /* 默认中文 */
 setLang('zh');
+window.dispatchEvent(new Event('scroll'));
 </script>
 
 </body>
 </html>
+window.dispatchEvent(new Event('scroll'));
