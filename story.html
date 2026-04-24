@@ -175,16 +175,11 @@ function setLang(lang) {
   document.querySelectorAll('.en').forEach(el => {
     el.style.display = (lang === 'en') ? 'block' : 'none';
   });
-
-  document.getElementById("title").innerText =
-    (lang === 'zh') ? "耶稣的故事 ✝️" : "Story of Jesus ✝️";
 }
 
-/* 默认中文 */
+/* 默认语言 */
 setLang('zh');
+
+/* 🔥 加在这里 */
 window.dispatchEvent(new Event('scroll'));
 </script>
-
-</body>
-</html>
-window.dispatchEvent(new Event('scroll'));
