@@ -1,129 +1,159 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>主祷文 | The Lord's Prayer</title>
 
-        body {
-            margin: 0;
-            font-family: Arial;
-            background: black;
-            color: white;
-            overflow-x: hidden;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: black;
+    color: white;
+}
 
-        /* 每一屏 */
-        section {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-        }
+/* 背景 */
+.bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url('jesus.jpg') center/cover no-repeat;
+    filter: blur(8px) brightness(0.4);
+    z-index: -1;
+}
 
-        /* 淡入动画 */
-        .fade {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 1s ease;
-        }
+/* 内容 */
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 60px 20px;
+    text-align: center;
+}
 
-        .fade.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
+/* 标题 */
+h1 {
+    color: #ffd700;
+    font-size: 36px;
+}
 
-        /* 标题 */
-        h1 {
-            font-size: 40px;
-            color: gold;
-            text-shadow: 0 0 15px gold;
-        }
+/* 祷文块 */
+.prayer {
+    margin-top: 30px;
+    padding: 25px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    line-height: 1.8;
+}
 
-        p {
-            font-size: 18px;
-            max-width: 600px;
-            line-height: 1.6;
-        }
+/* 中文 */
+.zh {
+    font-size: 20px;
+}
 
-        /* 按钮 */
-        .btn {
-            margin-top: 30px;
-            padding: 15px 30px;
-            font-size: 18px;
-            border: none;
-            border-radius: 10px;
-            background: gold;
-            color: black;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+/* 英文 */
+.en {
+    font-size: 18px;
+    color: #ccc;
+    margin-top: 15px;
+}
 
-        .btn:hover {
-            transform: scale(1.1);
-            background: orange;
-            box-shadow: 0 0 20px orange;
-        }
+/* 按钮 */
+button {
+    margin: 15px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(45deg,#ff9800,#ffc107);
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-        /* 背景渐变 */
-        .bg1 { background: linear-gradient(to bottom, black, #111); }
-        .bg2 { background: linear-gradient(to bottom, #111, #222); }
-        .bg3 { background: linear-gradient(to bottom, #222, black); }
-
-    </style>
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #ffc107;
+}
+</style>
 </head>
 
 <body>
 
-<!-- 第一屏 -->
-<section class="bg1">
-    <div class="fade">
-        <h1>🙏 神爱你</h1>
-        <p>约翰福音 3:16</p>
-    </div>
-</section>
+<div class="bg"></div>
 
-<!-- 第二屏 -->
-<section class="bg2">
-    <div class="fade">
-        <p>
-        神爱世人，甚至将他的独生子赐给他们，
-        叫一切信他的，不至灭亡，反得永生。
-        </p>
-    </div>
-</section>
+<!-- 🎵 音乐 -->
+<audio id="bgm" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
 
-<!-- 第三屏 -->
-<section class="bg3">
-    <div class="fade">
-        <p>
-        For God so loved the world that He gave His one and only Son,
-        that whoever believes in Him shall not perish but have eternal life.
-        </p>
-<button onclick="location.href='pray.html'">
-🙏 点击祷告
-</button>
-        <button class="btn" onclick="window.location.href='pray.html'">
-            🙏 Pray Now
-        </button>
-    </div>
-</section>
+<div class="container">
+
+<h1>🙏 主祷文<br>The Lord's Prayer</h1>
+
+<div class="prayer">
+
+<div class="zh">
+我们在天上的父：<br>
+愿人都尊你的名为圣。<br>
+愿你的国降临；<br>
+愿你的旨意行在地上，如同行在天上。<br><br>
+
+我们日用的饮食，今日赐给我们。<br>
+免我们的债，如同我们免了人的债。<br><br>
+
+不叫我们遇见试探；<br>
+救我们脱离凶恶。<br><br>
+
+因为国度、权柄、荣耀，全是你的，<br>
+直到永远。阿们。
+</div>
+
+<div class="en">
+Our Father in heaven,<br>
+hallowed be Your name.<br>
+Your kingdom come,<br>
+Your will be done, on earth as it is in heaven.<br><br>
+
+Give us today our daily bread.<br>
+And forgive us our debts, as we also have forgiven our debtors.<br><br>
+
+And lead us not into temptation,<br>
+but deliver us from the evil one.<br><br>
+
+For Yours is the kingdom and the power and the glory forever.<br>
+Amen.
+</div>
+
+</div>
+
+<!-- 按钮 -->
+<div>
+    <button onclick="playMusic()">🎵 播放音乐</button>
+    <button onclick="location.href='index.html'">🏠 返回首页</button>
+</div>
+
+</div>
 
 <script>
-    const faders = document.querySelectorAll('.fade');
+// 🎵 自动播放（用户点击后）
+window.addEventListener("click", () => {
+    let audio = document.getElementById("bgm");
+    audio.volume = 0;
+    audio.play();
 
-    function showOnScroll() {
-        const trigger = window.innerHeight * 0.85;
+    let fade = setInterval(() => {
+        if (audio.volume < 1) {
+            audio.volume += 0.05;
+        } else {
+            clearInterval(fade);
+        }
+    }, 200);
+}, { once: true });
 
-        faders.forEach(el => {
-            const top = el.getBoundingClientRect().top;
-
-            if (top < trigger) {
-                el.classList.add('show');
-            }
-        });
-    }
-
-    window.addEventListener('scroll', showOnScroll);
-    window.addEventListener('load', showOnScroll);
+// 🎵 手动播放
+function playMusic() {
+    document.getElementById("bgm").play();
+}
 </script>
 
 </body>
