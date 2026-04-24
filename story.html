@@ -143,32 +143,20 @@ body {
 
 </div>
 
-<script>
+</div> <!-- container结束 -->
 
-<a href="story.html">
-  <button class="btn">
-    ✝️ 进入 / Enter
-  </button>
+<!-- ✅ 按钮 -->
+<a href="index.html">
+  <button class="btn">🏠 返回首页</button>
 </a>
-  // 滚动动画触发
-  setTimeout(() => {
-    document.querySelectorAll('.block').forEach(el => {
-      el.classList.add('show');
-    });
-  }, 200);
-}
 
-/* 滚动动画（额外） */
-window.addEventListener('scroll', () => {
+<!-- ✅ JS -->
+<script>
+setTimeout(() => {
   document.querySelectorAll('.block').forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 50) {
-      el.classList.add('show');
-    }
+    el.classList.add('show');
   });
-});
-
+}, 200);
 </script>
-
 </body>
 </html>
