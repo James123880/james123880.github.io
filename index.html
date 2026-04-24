@@ -6,163 +6,179 @@
 
 <style>
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    height: 100vh;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url('jesus.jpg') center/cover no-repeat;
+  margin: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background: black;
+  color: white;
 }
 
-/* 黑色电影遮罩 */
+/* 背景画面 */
+.bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url('jesus.jpg') center/cover no-repeat;
+  filter: brightness(0.25);
+  transform: scale(1.1);
+  animation: zoom 20s ease infinite alternate;
+}
+
+@keyframes zoom {
+  from { transform: scale(1.1); }
+  to { transform: scale(1.2); }
+}
+
+/* 黑幕 */
 .overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(5px);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: black;
+  animation: fadeOut 2.5s ease forwards;
 }
 
-/* 内容卡片 */
+@keyframes fadeOut {
+  to { opacity: 0; }
+}
+
+/* 光闪一下（电影感） */
+.flash {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: white;
+  opacity: 0;
+  animation: flash 1s ease 1.5s;
+}
+
+@keyframes flash {
+  0% { opacity: 0; }
+  50% { opacity: 0.6; }
+  100% { opacity: 0; }
+}
+
+/* 中心内容 */
 .container {
-    position: relative;
-    text-align: center;
-    padding: 40px;
-    border-radius: 20px;
-    background: rgba(0,0,0,0.4);
-    animation: fadeIn 2s ease;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
-/* 标题 */
-h1 {
-    font-size: 48px;
-    color: #ff4d4d;
+/* 主标题 */
+.title {
+  font-size: 60px;
+  color: #ff4d4d;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: titleIn 2s ease 2s forwards;
+}
+
+@keyframes titleIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 打字字幕 */
+#typing {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #ddd;
+  min-height: 30px;
+}
+
+/* 光标 */
+#typing::after {
+  content: "|";
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
 }
 
 /* 按钮 */
-button {
-    margin: 10px;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 30px;
-    background: linear-gradient(45deg, #007bff, #00c6ff);
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
+.btn {
+  margin-top: 40px;
+  padding: 15px 30px;
+  background: #007bff;
+  border-radius: 30px;
+  cursor: pointer;
+  opacity: 0;
+  animation: fadeIn 2s ease 6s forwards;
 }
 
-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px #00c6ff;
+.btn:hover {
+  background: #0056b3;
 }
 
-/* 语言按钮 */
-.lang {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-
-/* 淡入动画 */
 @keyframes fadeIn {
-    from {opacity: 0; transform: translateY(30px);}
-    to {opacity: 1; transform: translateY(0);}
+  to { opacity: 1; }
 }
 </style>
 </head>
 
 <body>
 
+<div class="bg"></div>
 <div class="overlay"></div>
+<div class="flash"></div>
 
-<!-- 🎵 音乐 -->
-<audio id="bgm" loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<!-- 🌐 语言切换 -->
-<div class="lang">
-    <button onclick="setLang('zh')">中文</button>
-    <button onclick="setLang('en')">English</button>
 <div class="container">
   <div class="title">神爱你 ❤️</div>
-
   <div id="typing"></div>
-
-  <div class="btn" onclick="enterSite()">进入 / Enter</div>
+  <div class="btn" onclick="enter()">进入 / Enter</div>
 </div>
-    <p id="verse">约翰福音 3:16</p>
 
-    <p id="text">
-        神爱世人，甚至将他的独生子赐给他们，
-        叫一切信他的，不至灭亡，反得永生。
-    </p>
-
-    <br>
-
-    <button onclick="goPage('story.html')" id="btn1">
-        📖 阅读耶稣的故事
-    </button>
-
-    <button onclick="goPage('pray.html')" id="btn2">
-        🙏 点击祷告
-    </button>
-
-    <br><br>
-
-    <button onclick="playMusic()">🎵 播放音乐</button>
-</div>
+<!-- 🎵 音乐 -->
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 
 <script>
-// 🌐 语言切换
-function setLang(lang) {
-    if (lang === 'zh') {
-        title.innerText = "神爱你 ❤️";
-        verse.innerText = "约翰福音 3:16";
-        text.innerText = "神爱世人，甚至将他的独生子赐给他们，叫一切信他的，不至灭亡，反得永生。";
-        btn1.innerText = "📖 阅读耶稣的故事";
-        btn2.innerText = "🙏 点击祷告";
-    }
+// 🎬 打字机字幕
+const text = [
+  "你是否在寻找人生的意义？",
+  "Are you searching for meaning in life?",
+  "耶稣爱你 ❤️",
+  "Jesus loves you"
+];
 
-    if (lang === 'en') {
-        title.innerText = "God Loves You ❤️";
-        verse.innerText = "John 3:16";
-        text.innerText = "For God so loved the world that He gave His only Son, that whoever believes in Him shall not perish but have eternal life.";
-        btn1.innerText = "📖 Read the Story of Jesus";
-        btn2.innerText = "🙏 Pray";
+let line = 0;
+let char = 0;
+
+function typeEffect() {
+  if (line < text.length) {
+    if (char < text[line].length) {
+      document.getElementById("typing").innerHTML += text[line].charAt(char);
+      char++;
+      setTimeout(typeEffect, 40);
+    } else {
+      setTimeout(() => {
+        document.getElementById("typing").innerHTML = "";
+        char = 0;
+        line++;
+        typeEffect();
+      }, 1500);
     }
+  }
 }
 
-// 🎵 自动淡入音乐
-window.addEventListener("click", () => {
-    let audio = document.getElementById("bgm");
-    audio.volume = 0;
-    audio.play();
-
-    let fade = setInterval(() => {
-        if (audio.volume < 1) {
-            audio.volume += 0.05;
-        } else {
-            clearInterval(fade);
-        }
-    }, 200);
+// 🎵 自动播放（需要用户触发）
+document.body.addEventListener("click", () => {
+  document.getElementById("music").play();
 }, { once: true });
 
-// 🎵 手动播放
-function playMusic() {
-    let audio = document.getElementById("bgm");
-    audio.play();
-}
+// 启动字幕（延迟更有电影感）
+setTimeout(typeEffect, 2500);
 
-// 🔗 跳转页面（带淡出效果）
-function goPage(page) {
-    document.body.style.opacity = 0;
-    setTimeout(() => {
-        window.location.href = page;
-    }, 500);
+// 进入页面
+function enter() {
+  window.location.href = "story.html";
 }
 </script>
 
