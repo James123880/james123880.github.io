@@ -2,77 +2,70 @@
 <html lang="zh">
 <head>
 <meta charset="UTF-8">
-<title>主祷文 | The Lord's Prayer</title>
+<title>Story of Jesus</title>
 
 <style>
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: black;
-    color: white;
+  margin: 0;
+  font-family: Arial;
+  color: white;
 }
 
-/* 背景 */
 .bg {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: url('jesus.jpg') center/cover no-repeat;
-    filter: blur(8px) brightness(0.4);
-    z-index: -1;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url('jesus.jpg') center/cover no-repeat;
+  filter: brightness(0.3) blur(3px);
+  z-index: -1;
 }
 
-/* 内容 */
 .container {
-    max-width: 800px;
-    margin: auto;
-    padding: 60px 20px;
-    text-align: center;
+  max-width: 800px;
+  margin: auto;
+  padding: 100px 20px;
 }
 
-/* 标题 */
 h1 {
-    color: #ffd700;
-    font-size: 36px;
+  text-align: center;
+  color: #ff4d4d;
 }
 
-/* 祷文块 */
-.prayer {
-    margin-top: 30px;
-    padding: 25px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 15px;
-    line-height: 1.8;
+.block {
+  margin: 40px 0;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 1s;
 }
 
-/* 中文 */
-.zh {
-    font-size: 20px;
+.block.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* 英文 */
-.en {
-    font-size: 18px;
-    color: #ccc;
-    margin-top: 15px;
+.zh { font-size: 18px; }
+.en { font-size: 16px; color: #ccc; }
+
+.lang {
+  position: fixed;
+  top: 20px;
+  right: 20px;
 }
 
-/* 按钮 */
 button {
-    margin: 15px;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 30px;
-    background: linear-gradient(45deg,#ff9800,#ffc107);
-    color: black;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
+  padding: 8px 15px;
+  margin: 5px;
+  border: none;
+  background: #007bff;
+  color: white;
+  border-radius: 10px;
 }
 
-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px #ffc107;
+/* 打字机 */
+#typing {
+  margin-top: 30px;
+  font-size: 20px;
+  color: #ddd;
 }
 </style>
 </head>
@@ -81,79 +74,88 @@ button:hover {
 
 <div class="bg"></div>
 
-<!-- 🎵 音乐 -->
-<audio id="bgm" loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
+<div class="lang">
+  <button onclick="setLang('zh')">中文</button>
+  <button onclick="setLang('en')">English</button>
+</div>
 
 <div class="container">
 
-<h1>🙏 主祷文<br>The Lord's Prayer</h1>
+<h1 id="title">耶稣的故事 ✝️</h1>
 
-<div class="prayer">
-
-<div class="zh">
-我们在天上的父：<br>
-愿人都尊你的名为圣。<br>
-愿你的国降临；<br>
-愿你的旨意行在地上，如同行在天上。<br><br>
-
-我们日用的饮食，今日赐给我们。<br>
-免我们的债，如同我们免了人的债。<br><br>
-
-不叫我们遇见试探；<br>
-救我们脱离凶恶。<br><br>
-
-因为国度、权柄、荣耀，全是你的，<br>
-直到永远。阿们。
+<div class="block">
+  <div class="zh">耶稣出生在伯利恒，这是一个谦卑的开始。</div>
+  <div class="en">Jesus was born in Bethlehem, a humble beginning.</div>
 </div>
 
-<div class="en">
-Our Father in heaven,<br>
-hallowed be Your name.<br>
-Your kingdom come,<br>
-Your will be done, on earth as it is in heaven.<br><br>
-
-Give us today our daily bread.<br>
-And forgive us our debts, as we also have forgiven our debtors.<br><br>
-
-And lead us not into temptation,<br>
-but deliver us from the evil one.<br><br>
-
-For Yours is the kingdom and the power and the glory forever.<br>
-Amen.
+<div class="block">
+  <div class="zh">他成长于拿撒勒，过着普通生活。</div>
+  <div class="en">He grew up in Nazareth.</div>
 </div>
+
+<div class="block">
+  <div class="zh">他教导爱、医治人。</div>
+  <div class="en">He taught love and healed people.</div>
+</div>
+
+<div class="block">
+  <div class="zh">他为世人的罪被钉十字架。</div>
+  <div class="en">He died on the cross for us.</div>
+</div>
+
+<div class="block">
+  <div class="zh">三天后复活。</div>
+  <div class="en">He rose again.</div>
+</div>
+
+<div id="typing"></div>
 
 </div>
 
-<!-- 按钮 -->
-<div>
-    <button onclick="playMusic()">🎵 播放音乐</button>
-    <button onclick="location.href='index.html'">🏠 返回首页</button>
-</div>
-
-</div>
+<!-- 🎵 音乐 -->
+<audio id="bgm" src="music.mp3" loop></audio>
 
 <script>
-// 🎵 自动播放（用户点击后）
-window.addEventListener("click", () => {
-    let audio = document.getElementById("bgm");
-    audio.volume = 0;
-    audio.play();
+/* 滚动动画 */
+const blocks = document.querySelectorAll('.block');
+window.addEventListener('scroll', () => {
+  blocks.forEach(b => {
+    if (b.getBoundingClientRect().top < window.innerHeight - 50) {
+      b.classList.add('show');
+    }
+  });
+});
 
-    let fade = setInterval(() => {
-        if (audio.volume < 1) {
-            audio.volume += 0.05;
-        } else {
-            clearInterval(fade);
-        }
-    }, 200);
-}, { once: true });
+/* 初始触发 */
+window.dispatchEvent(new Event('scroll'));
 
-// 🎵 手动播放
-function playMusic() {
-    document.getElementById("bgm").play();
+/* 语言切换 */
+function setLang(lang) {
+  document.querySelectorAll('.zh').forEach(el => {
+    el.style.display = (lang==='zh')?'block':'none';
+  });
+  document.querySelectorAll('.en').forEach(el => {
+    el.style.display = (lang==='en')?'block':'none';
+  });
 }
+setLang('zh');
+
+/* 🎬 打字机 */
+let text = "Jesus loves you...";
+let i = 0;
+function typing() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typing, 80);
+  }
+}
+typing();
+
+/* 🎵 自动音乐（点击后播放） */
+document.body.addEventListener('click', () => {
+  document.getElementById("bgm").play();
+}, { once: true });
 </script>
 
 </body>
