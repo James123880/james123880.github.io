@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
 <meta charset="UTF-8">
-<title>耶稣的故事 | Story of Jesus</title>
+<title>耶稣的故事</title>
 
 <style>
 body {
@@ -10,7 +10,6 @@ body {
     font-family: Arial, sans-serif;
     background: black;
     color: white;
-    overflow-x: hidden;
 }
 
 /* 背景 */
@@ -25,7 +24,7 @@ body {
 
 /* 内容 */
 .container {
-    max-width: 900px;
+    max-width: 800px;
     margin: auto;
     padding: 60px 20px;
 }
@@ -34,60 +33,45 @@ body {
 h1 {
     text-align: center;
     color: #ff4d4d;
-    font-size: 40px;
 }
 
-/* 每段故事 */
+/* 内容块 */
 .block {
-    margin: 40px 0;
+    margin: 30px 0;
     padding: 20px;
     background: rgba(255,255,255,0.05);
     border-radius: 15px;
-    transition: 0.5s;
-}
-
-/* 中文 */
-.zh {
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-/* 英文 */
-.en {
-    font-size: 16px;
-    color: #ccc;
-    margin-top: 10px;
-}
-
-/* 按钮 */
-button {
-    margin: 20px 10px;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 30px;
-    background: linear-gradient(45deg,#007bff,#00c6ff);
-    color: white;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px #00c6ff;
-}
-
-/* 淡入动画 */
-.fade {
     opacity: 0;
     transform: translateY(30px);
+    transition: 1s;
 }
 
 .show {
     opacity: 1;
     transform: translateY(0);
-    transition: 1s;
+}
+
+.zh {
+    font-size: 18px;
+}
+
+.en {
+    font-size: 16px;
+    color: #ccc;
+}
+
+/* 按钮 */
+button {
+    margin: 10px;
+    padding: 12px 20px;
+    border-radius: 20px;
+    border: none;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
 }
 </style>
+
 </head>
 
 <body>
@@ -96,89 +80,36 @@ button:hover {
 
 <div class="container">
 
-<h1>耶稣的故事 ✝️<br>Story of Jesus</h1>
+<h1>耶稣的故事 ✝️</h1>
 
-<!-- 第一段 -->
-<div class="block fade">
-    <div class="zh">
-        耶稣出生在一个卑微的马槽中，但他的降生改变了世界。
-    </div>
-    <div class="en">
-        Jesus was born in a humble manger, yet His birth changed the world.
-    </div>
+<div class="block">
+<div class="zh">耶稣出生在伯利恒，一个 humble 的开始。</div>
+<div class="en">Jesus was born in Bethlehem, a humble beginning.</div>
 </div>
 
-<!-- 第二段 -->
-<div class="block fade">
-    <div class="zh">
-        他医治病人，使瞎子看见，使瘸子行走，向人们传讲神的爱。
-    </div>
-    <div class="en">
-        He healed the sick, gave sight to the blind, made the lame walk, and preached God's love.
-    </div>
+<div class="block">
+<div class="zh">他医治病人，教导人爱与真理。</div>
+<div class="en">He healed the sick and taught love and truth.</div>
 </div>
 
-<!-- 第三段 -->
-<div class="block fade">
-    <div class="zh">
-        他告诉人们：神爱世人，每一个人都可以得到救赎。
-    </div>
-    <div class="en">
-        He taught that God loves the world and that everyone can receive salvation.
-    </div>
+<div class="block">
+<div class="zh">他被钉在十字架上，为世人的罪牺牲。</div>
+<div class="en">He was crucified, sacrificing for the sins of the world.</div>
 </div>
 
-<!-- 第四段 -->
-<div class="block fade">
-    <div class="zh">
-        然而，他被误解、被拒绝，最终被钉在十字架上。
-    </div>
-    <div class="en">
-        Yet He was misunderstood, rejected, and eventually crucified on the cross.
-    </div>
+<div class="block">
+<div class="zh">三天后，他复活了。</div>
+<div class="en">Three days later, He rose again.</div>
 </div>
 
-<!-- 第五段 -->
-<div class="block fade">
-    <div class="zh">
-        他为世人的罪付上代价，用生命换来希望。
-    </div>
-    <div class="en">
-        He paid the price for the sins of the world, giving hope through His life.
-    </div>
-</div>
-
-<!-- 第六段 -->
-<div class="block fade">
-    <div class="zh">
-        三天后，他从死里复活，战胜死亡。
-    </div>
-    <div class="en">
-        Three days later, He rose from the dead, defeating death.
-    </div>
-</div>
-
-<!-- 第七段 -->
-<div class="block fade">
-    <div class="zh">
-        今天，他仍然爱你，等待你回应。
-    </div>
-    <div class="en">
-        Today, He still loves you and is waiting for your response.
-    </div>
-</div>
-
-<!-- 按钮 -->
 <div style="text-align:center;">
-    <button onclick="location.href='index.html'">🏠 返回首页</button>
-    <button onclick="location.href='pray.html'">🙏 去祷告</button>
+<button onclick="location.href='index.html'">返回首页</button>
 </div>
 
 </div>
 
 <script>
-// 滚动淡入动画
-const blocks = document.querySelectorAll('.fade');
+const blocks = document.querySelectorAll('.block');
 
 window.addEventListener('scroll', () => {
     blocks.forEach(block => {
