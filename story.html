@@ -104,13 +104,10 @@ const bibleData = [
     en: "The virgin will conceive and give birth to a son, and they will call him Immanuel."
   }
 ];
-
-
 /* 🚀 开始加载 */
 function startStory() {
   const container = document.getElementById("story");
   container.innerHTML = "";
-
   bibleData.forEach((verse, index) => {
     const div = document.createElement("div");
     div.className = "block";
@@ -128,8 +125,6 @@ function startStory() {
     }, index * 800);
   });
 }
-
-
 /* 🌐 语言切换 */
 function setLang(lang) {
   const zh = document.querySelectorAll('.zh');
