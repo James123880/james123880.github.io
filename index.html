@@ -8,40 +8,25 @@
 body {
   margin: 0;
   overflow: hidden;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   color: white;
 }
 
-/* 背景 */
 .bg {
   position: fixed;
   width: 100%;
   height: 100%;
   background: url('jesus.jpg') center/cover no-repeat;
-  filter: brightness(0.3);
-  animation: zoom 20s ease infinite alternate;
+  filter: brightness(0.4);
+  animation: zoom 20s infinite alternate;
+  z-index: -1;
 }
 
-/* 电影慢慢推进 */
 @keyframes zoom {
   from { transform: scale(1); }
   to { transform: scale(1.1); }
 }
 
-/* 黑幕淡出 */
-.overlay {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: black;
-  animation: fadeOut 3s ease forwards;
-}
-
-@keyframes fadeOut {
-  to { opacity: 0; }
-}
-
-/* 内容 */
 .container {
   position: absolute;
   top: 50%;
@@ -50,23 +35,19 @@ body {
   text-align: center;
 }
 
-/* 标题 */
 .title {
   font-size: 50px;
   color: #ff4d4d;
   opacity: 0;
-  animation: fadeIn 3s ease 2s forwards;
+  animation: fadeIn 3s forwards 1s;
 }
 
-/* 副标题 */
 .subtitle {
   margin-top: 20px;
-  font-size: 20px;
   opacity: 0;
-  animation: fadeIn 3s ease 4s forwards;
+  animation: fadeIn 3s forwards 3s;
 }
 
-/* 按钮 */
 .btn {
   margin-top: 40px;
   padding: 15px 30px;
@@ -74,29 +55,11 @@ body {
   border-radius: 30px;
   cursor: pointer;
   opacity: 0;
-  animation: fadeIn 3s ease 6s forwards;
+  animation: fadeIn 3s forwards 5s;
 }
 
-.btn:hover {
-  background: #0056b3;
-}
-
-/* 淡入动画 */
 @keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-</style><style>
-/* 你原来的代码 */
-
-/* 👇 加在这里 */
-#typing {
-  margin-top: 20px;
-  font-size: 20px;
-  color: #ddd;
-  min-height: 30px;
+  to { opacity: 1; transform: translateY(0); }
 }
 </style>
 </head>
@@ -104,17 +67,15 @@ body {
 <body>
 
 <div class="bg"></div>
-<div class="overlay"></div>
 
 <div class="container">
   <div class="title">神爱你 ❤️</div>
-  <div class="subtitle">God loves you and gives you new life</div>
-
-  <div class="btn" onclick="enterSite()">进入 / Enter</div>
+  <div class="subtitle">God loves you</div>
+  <div class="btn" onclick="go()">进入 / Enter</div>
 </div>
 
 <script>
-function enterSite() {
+function go() {
   window.location.href = "story.html";
 }
 </script>
