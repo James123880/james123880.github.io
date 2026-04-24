@@ -9,171 +9,181 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   color: white;
+  background: url('jesus.jpg') no-repeat center center/cover;
 }
 
-/* 背景 */
-.bg {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: url('jesus.jpg') center/cover no-repeat;
-  filter: brightness(0.4) blur(3px);
-  z-index: -2;
-}
-
-/* 遮罩 */
+/* 背景遮罩 */
 .overlay {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.6);
-  z-index: -1;
 }
 
-/* 内容 */
+/* 内容容器 */
 .container {
-  max-width: 900px;
+  position: relative;
+  z-index: 2;
+  padding: 80px 20px;
+  max-width: 800px;
   margin: auto;
-  padding: 100px 20px;
 }
 
 /* 标题 */
 h1 {
   text-align: center;
-  color: #ff4d6d;
-  margin-bottom: 50px;
+  font-size: 40px;
+  margin-bottom: 40px;
+  color: #ff4d4d;
 }
 
-/* 每一段 */
+/* 每段 */
 .block {
-  display: flex;
-  gap: 20px;
-  margin: 30px 0;
+  margin-bottom: 30px;
   opacity: 0;
-  transform: translateY(40px);
-  transition: all 1s ease;
+  transform: translateY(30px);
+  transition: all 1s;
 }
 
-/* 出现动画 */
 .block.show {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* 中文 */
 .zh {
-  flex: 1;
   font-size: 20px;
-  line-height: 1.6;
+  margin-bottom: 8px;
 }
 
-/* 英文 */
 .en {
-  flex: 1;
-  font-size: 18px;
-  color: #ccc;
-  line-height: 1.6;
+  font-size: 16px;
+  color: #ddd;
 }
 
-/* 手机适配 */
-@media (max-width: 768px) {
-  .block {
-    flex-direction: column;
-  }
+/* 语言按钮 */
+.lang {
+  position: fixed;
+  top: 20px;
+  right: 20px;
 }
 
-/* 返回按钮 */
-.back {
-  text-align: center;
-  margin-top: 60px;
-}
-
-.back button {
-  padding: 12px 25px;
+.lang button {
+  margin-left: 10px;
+  padding: 6px 12px;
   border: none;
-  border-radius: 25px;
+  border-radius: 10px;
   background: #007bff;
   color: white;
   cursor: pointer;
+}
+
+/* 祷告按钮 */
+.pray {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+}
+
+.pray button {
+  padding: 10px 18px;
+  border-radius: 20px;
+  border: none;
+  background: rgba(0, 123, 255, 0.7);
+  color: white;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 10px rgba(0,123,255,0.6);
 }
 </style>
 </head>
 
 <body>
 
-<div class="bg"></div>
 <div class="overlay"></div>
 
+<!-- 语言切换 -->
+<div class="lang">
+  <button onclick="setLang('zh')">中文</button>
+  <button onclick="setLang('en')">English</button>
+</div>
+
+<!-- 祷告按钮 -->
+<div class="pray">
+  <button onclick="window.location.href='pray.html'">🙏 Prayer</button>
+</div>
+
 <div class="container">
+  <h1>耶稣的故事 ✝️</h1>
 
-<h1>耶稣的故事 ✝️<br>Story of Jesus</h1>
+  <!-- 段落 -->
+  <div class="block">
+    <div class="zh">耶稣出生在伯利恒，这是一个谦卑的开始。</div>
+    <div class="en">Jesus was born in Bethlehem, a humble beginning.</div>
+  </div>
 
-<div class="block">
-  <div class="zh">耶稣出生在伯利恒，这是一个谦卑的开始。</div>
-  <div class="en">Jesus was born in Bethlehem, a humble beginning.</div>
-</div>
+  <div class="block">
+    <div class="zh">他在拿撒勒长大，过着普通的生活。</div>
+    <div class="en">He grew up in Nazareth and lived a simple life.</div>
+  </div>
 
-<div class="block">
-  <div class="zh">他在拿撒勒长大，过着普通却顺服神的生活。</div>
-  <div class="en">He grew up in Nazareth and lived a simple, obedient life.</div>
-</div>
+  <div class="block">
+    <div class="zh">他开始传道，教导人们爱与宽恕。</div>
+    <div class="en">He began to preach, teaching love and forgiveness.</div>
+  </div>
 
-<div class="block">
-  <div class="zh">三十岁左右，耶稣开始传道，宣讲天国的福音。</div>
-  <div class="en">Around the age of thirty, Jesus began preaching the Kingdom of God.</div>
-</div>
+  <div class="block">
+    <div class="zh">他医治病人，帮助穷人，行了许多神迹。</div>
+    <div class="en">He healed the sick, helped the poor, and performed miracles.</div>
+  </div>
 
-<div class="block">
-  <div class="zh">他医治病人，使瞎子看见，使瘸子行走。</div>
-  <div class="en">He healed the sick, gave sight to the blind, and made the lame walk.</div>
-</div>
+  <div class="block">
+    <div class="zh">他为世人的罪被钉在十字架上。</div>
+    <div class="en">He was crucified for the sins of the world.</div>
+  </div>
 
-<div class="block">
-  <div class="zh">他教导人爱人如己，饶恕他人，活出真理。</div>
-  <div class="en">He taught people to love, forgive, and live in truth.</div>
-</div>
+  <div class="block">
+    <div class="zh">三天后，他复活了，战胜了死亡。</div>
+    <div class="en">Three days later, He rose again and defeated death.</div>
+  </div>
 
-<div class="block">
-  <div class="zh">他被钉在十字架上，为世人的罪献上生命。</div>
-  <div class="en">He was crucified on the cross, giving His life for the sins of the world.</div>
-</div>
-
-<div class="block">
-  <div class="zh">三天后，耶稣从死里复活，战胜了死亡。</div>
-  <div class="en">Three days later, He rose again, defeating death.</div>
-</div>
-
-<div class="block">
-  <div class="zh">今天，祂仍然活着，赐给人新的生命与盼望。</div>
-  <div class="en">Today, He is alive and offers new life and hope.</div>
-</div>
-
-<div class="back">
-  <button onclick="goHome()">🏠 返回首页 / Home</button>
-</div>
+  <div class="block">
+    <div class="zh">他给世人带来了永恒的盼望。</div>
+    <div class="en">He brought eternal hope to the world.</div>
+  </div>
 
 </div>
 
 <script>
-// 滚动动画
-const blocks = document.querySelectorAll('.block');
 
+/* 滚动动画 */
 window.addEventListener('scroll', () => {
-  blocks.forEach(block => {
-    const top = block.getBoundingClientRect().top;
+  document.querySelectorAll('.block').forEach(el => {
+    const top = el.getBoundingClientRect().top;
     if (top < window.innerHeight - 50) {
-      block.classList.add('show');
+      el.classList.add('show');
     }
   });
 });
 
-// 页面一打开就触发动画
+/* 页面加载自动触发 */
 window.dispatchEvent(new Event('scroll'));
 
-// 返回首页
-function goHome() {
-  window.location.href = "index.html";
+/* 语言切换 */
+function setLang(lang) {
+  document.querySelectorAll('.zh').forEach(el => {
+    el.style.display = (lang === 'zh') ? 'block' : 'none';
+  });
+
+  document.querySelectorAll('.en').forEach(el => {
+    el.style.display = (lang === 'en') ? 'block' : 'none';
+  });
 }
+
+/* 默认中文 */
+setLang('zh');
+
 </script>
 
 </body>
