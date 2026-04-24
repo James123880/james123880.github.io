@@ -75,13 +75,21 @@ body {
 </div>
 
 <script>
-function go() {
-  window.location.href = "story.html";
-}
 </script>
-<div style="position: fixed; top: 20px; left: 20px;">
-  <button onclick="window.location.href='pray.html'">🙏 Prayer</button>
+<div style="position: fixed; top: 20px; right: 20px;">
+  <button 
+    style="
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: none;
+      background: rgba(0, 123, 255, 0.8);
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 10px rgba(0,123,255,0.6);
+    "
+    onclick="window.location.href='pray.html'">
+    🙏 Prayer
+  </button>
 </div>
-</button>
-</body>
-</html>
