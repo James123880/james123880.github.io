@@ -175,20 +175,4 @@ window.addEventListener('scroll', reveal);
 window.onload = reveal;
 
 /* 语言切换 */
-function setLang(lang) {
-  document.querySelectorAll('.zh').forEach(el => {
-    el.style.display = (lang === 'zh') ? 'block' : 'none';
-  });
-
-  document.querySelectorAll('.en').forEach(el => {
-    el.style.display = (lang === 'en') ? 'block' : 'none';
-  });
-}
-
-/* 默认中文 */
-setLang('zh');
-
-</script>
-
-</body>
-</html>
+onclick="window.location.href='story.html'"
