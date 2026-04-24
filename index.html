@@ -9,56 +9,39 @@ body {
   margin: 0;
   overflow: hidden;
   font-family: Arial, sans-serif;
-  background: black;
   color: white;
 }
 
-/* 背景画面 */
+/* 背景 */
 .bg {
   position: fixed;
   width: 100%;
   height: 100%;
   background: url('jesus.jpg') center/cover no-repeat;
-  filter: brightness(0.25);
-  transform: scale(1.1);
+  filter: brightness(0.3);
   animation: zoom 20s ease infinite alternate;
 }
 
+/* 电影慢慢推进 */
 @keyframes zoom {
-  from { transform: scale(1.1); }
-  to { transform: scale(1.2); }
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
 }
 
-/* 黑幕 */
+/* 黑幕淡出 */
 .overlay {
   position: fixed;
   width: 100%;
   height: 100%;
   background: black;
-  animation: fadeOut 2.5s ease forwards;
+  animation: fadeOut 3s ease forwards;
 }
 
 @keyframes fadeOut {
   to { opacity: 0; }
 }
 
-/* 光闪一下（电影感） */
-.flash {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: white;
-  opacity: 0;
-  animation: flash 1s ease 1.5s;
-}
-
-@keyframes flash {
-  0% { opacity: 0; }
-  50% { opacity: 0.6; }
-  100% { opacity: 0; }
-}
-
-/* 中心内容 */
+/* 内容 */
 .container {
   position: absolute;
   top: 50%;
@@ -67,38 +50,20 @@ body {
   text-align: center;
 }
 
-/* 主标题 */
+/* 标题 */
 .title {
-  font-size: 60px;
+  font-size: 50px;
   color: #ff4d4d;
   opacity: 0;
-  transform: scale(0.8);
-  animation: titleIn 2s ease 2s forwards;
+  animation: fadeIn 3s ease 2s forwards;
 }
 
-@keyframes titleIn {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* 打字字幕 */
-#typing {
+/* 副标题 */
+.subtitle {
   margin-top: 20px;
   font-size: 20px;
-  color: #ddd;
-  min-height: 30px;
-}
-
-/* 光标 */
-#typing::after {
-  content: "|";
-  animation: blink 1s infinite;
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
+  opacity: 0;
+  animation: fadeIn 3s ease 4s forwards;
 }
 
 /* 按钮 */
@@ -109,15 +74,19 @@ body {
   border-radius: 30px;
   cursor: pointer;
   opacity: 0;
-  animation: fadeIn 2s ease 6s forwards;
+  animation: fadeIn 3s ease 6s forwards;
 }
 
 .btn:hover {
   background: #0056b3;
 }
 
+/* 淡入动画 */
 @keyframes fadeIn {
-  to { opacity: 1; }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>
 </head>
@@ -126,58 +95,16 @@ body {
 
 <div class="bg"></div>
 <div class="overlay"></div>
-<div class="flash"></div>
 
 <div class="container">
   <div class="title">神爱你 ❤️</div>
-  <div id="typing"></div>
-  <div class="btn" onclick="enter()">进入 / Enter</div>
+  <div class="subtitle">God loves you and gives you new life</div>
+
+  <div class="btn" onclick="enterSite()">进入 / Enter</div>
 </div>
 
-<!-- 🎵 音乐 -->
-<audio id="music" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
 <script>
-// 🎬 打字机字幕
-const text = [
-  "你是否在寻找人生的意义？",
-  "Are you searching for meaning in life?",
-  "耶稣爱你 ❤️",
-  "Jesus loves you"
-];
-
-let line = 0;
-let char = 0;
-
-function typeEffect() {
-  if (line < text.length) {
-    if (char < text[line].length) {
-      document.getElementById("typing").innerHTML += text[line].charAt(char);
-      char++;
-      setTimeout(typeEffect, 40);
-    } else {
-      setTimeout(() => {
-        document.getElementById("typing").innerHTML = "";
-        char = 0;
-        line++;
-        typeEffect();
-      }, 1500);
-    }
-  }
-}
-
-// 🎵 自动播放（需要用户触发）
-document.body.addEventListener("click", () => {
-  document.getElementById("music").play();
-}, { once: true });
-
-// 启动字幕（延迟更有电影感）
-setTimeout(typeEffect, 2500);
-
-// 进入页面
-function enter() {
+function enterSite() {
   window.location.href = "story.html";
 }
 </script>
