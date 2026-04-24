@@ -97,9 +97,14 @@ button:hover {
 <div class="lang">
   <button onclick="setLang('zh')">中文</button>
   <button onclick="setLang('en')">English</button>
-</div>
-
-<div class="container">
+<div id="typing"></div>
+#typing {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #ddd;
+  min-height: 30px;
+}
+  <div class="container">
 
 <h1 id="title">耶稣的故事 ✝️</h1>
 
@@ -153,7 +158,36 @@ button:hover {
 
 </div>
 
-<script>
+<scriptconst text = [
+  "你是否在寻找人生的意义？",
+  "Are you searching for meaning in life?",
+  "耶稣爱你 ❤️",
+  "Jesus loves you"
+];
+
+let line = 0;
+let char = 0;
+
+function typeEffect() {
+  if (line < text.length) {
+    if (char < text[line].length) {
+      document.getElementById("typing").innerHTML += text[line].charAt(char);
+      char++;
+      setTimeout(typeEffect, 50); // 速度（越小越快）
+    } else {
+      // 一句打完，停一下再下一句
+      setTimeout(() => {
+        document.getElementById("typing").innerHTML = "";
+        char = 0;
+        line++;
+        typeEffect();
+      }, 1500);
+    }
+  }
+}
+
+// 启动
+typeEffect();>
 /* 滚动动画 */
 const blocks = document.querySelectorAll('.block');
 
