@@ -9,43 +9,65 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   color: white;
-  background: url('jesus.jpg') no-repeat center center/cover;
+  background: url('jesus.jpg') center/cover no-repeat;
 }
 
-/* 背景遮罩（不会挡按钮） */
+/* 黑色遮罩 */
 .overlay {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.6);
-  z-index: 0;
 }
 
 /* 内容 */
 .container {
   position: relative;
   z-index: 2;
-  padding: 80px 20px;
   max-width: 800px;
   margin: auto;
+  padding: 100px 20px;
+  text-align: center;
 }
 
 /* 标题 */
-h1 {
-  text-align: center;
-  font-size: 40px;
-  margin-bottom: 40px;
+.title {
+  font-size: 42px;
   color: #ff4d4d;
+  margin-bottom: 20px;
 }
 
-/* 段落动画 */
+/* 副标题 */
+.subtitle {
+  font-size: 18px;
+  color: #ccc;
+}
+
+/* 按钮 */
+.btn {
+  margin-top: 40px;
+  padding: 15px 45px;
+  border-radius: 50px;
+  border: none;
+  background: linear-gradient(45deg, #00c6ff, #007bff);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(0,123,255,0.8);
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 40px rgba(0,123,255,1);
+}
+
+/* 故事 */
 .block {
-  margin-bottom: 30px;
+  margin: 40px 0;
   opacity: 0;
   transform: translateY(40px);
-  transition: all 1s;
+  transition: 1s;
 }
 
 .block.show {
@@ -61,42 +83,6 @@ h1 {
   font-size: 16px;
   color: #ccc;
 }
-
-/* 语言按钮 */
-.lang {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 10;
-}
-
-.lang button {
-  margin-left: 10px;
-  padding: 6px 12px;
-  border: none;
-  border-radius: 10px;
-  background: #007bff;
-  color: white;
-  cursor: pointer;
-}
-
-/* 祷告按钮（不会被挡） */
-.pray {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 10;
-}
-
-.pray button {
-  padding: 10px 18px;
-  border-radius: 20px;
-  border: none;
-  background: rgba(0,123,255,0.8);
-  color: white;
-  cursor: pointer;
-  box-shadow: 0 0 10px rgba(0,123,255,0.6);
-}
 </style>
 </head>
 
@@ -104,106 +90,84 @@ h1 {
 
 <div class="overlay"></div>
 
-<!-- 左上祷告按钮 -->
-<div class="pray">
-  <button onclick="window.location.href='pray.html'">
-    🙏 Prayer
-  </button>
-</div>
-
-<!-- 右上语言 -->
-<div class="lang">
-  <button onclick="setLang('zh')">中文</button>
-  <button onclick="setLang('en')">English</button>
-</div>
-
 <div class="container">
-  <h1>耶稣的故事 ✝️</h1>
 
-  <div class="block">
-    <div class="zh">耶稣出生在伯利恒，这是一个谦卑的开始。</div>
-    <div class="en">Jesus was born in Bethlehem, a humble beginning.</div>
-  </div>
+  <!-- 标题 -->
+  <div class="title">耶稣的故事 ✝️</div>
+  <div class="subtitle">Story of Jesus</div>
 
-  <div class="block">
-    <div class="zh">他在拿撒勒长大，过着普通的生活。</div>
-    <div class="en">He grew up in Nazareth and lived a simple life.</div>
-  </div>
-
-  <div class="block">
-    <div class="zh">他开始传道，教导人们爱与宽恕。</div>
-    <div class="en">He began to preach, teaching love and forgiveness.</div>
-  </div>
-
-  <div class="block">
-    <div class="zh">他医治病人，帮助穷人，行了许多神迹。</div>
-    <div class="en">He healed the sick, helped the poor, and performed miracles.</div>
-  </div>
-
-  <div class="block">
-    <div class="zh">他为世人的罪被钉在十字架上。</div>
-    <div class="en">He was crucified for the sins of the world.</div>
-  </div>
-
-  <div class="block">
-    <div class="zh">三天后，他复活了，战胜了死亡。</div>
-    <div class="en">Three days later, He rose again and defeated death.</div>
-  </div>
-
-  <div class="block">
-    <div class="zh">他带来了爱、希望与永生。</div>
-    <div class="en">He brought love, hope, and eternal life.</div>
-  </div>
-
-<div style="text-align:center; margin-top: 30px;">
-  <button 
-    onclick="window.location.href='story.html'"
-    style="
-      padding: 15px 45px;
-      border-radius: 50px;
-      border: none;
-      background: linear-gradient(45deg, #00c6ff, #007bff);
-      color: white;
-      font-size: 20px;
-      cursor: pointer;
-      box-shadow: 0 0 25px rgba(0,123,255,0.8);
-      transition: all 0.3s ease;
-    "
-    onmouseover="
-      this.style.transform='scale(1.1)';
-      this.style.boxShadow='0 0 40px rgba(0,123,255,1)';
-    "
-    onmouseout="
-      this.style.transform='scale(1)';
-      this.style.boxShadow='0 0 25px rgba(0,123,255,0.8)';
-    "
-  >
+  <!-- 🔥 进入按钮 -->
+  <button class="btn" onclick="startStory()">
     ✝️ 进入 / Enter
   </button>
+
+  <!-- 故事 -->
+  <div id="story" style="display:none;">
+
+    <div class="block">
+      <div class="zh">耶稣出生在伯利恒，这是一个谦卑的开始。</div>
+      <div class="en">Jesus was born in Bethlehem, a humble beginning.</div>
+    </div>
+
+    <div class="block">
+      <div class="zh">他在拿撒勒长大，过着普通的生活。</div>
+      <div class="en">He grew up in Nazareth and lived a simple life.</div>
+    </div>
+
+    <div class="block">
+      <div class="zh">他教导人爱与宽恕，带来希望。</div>
+      <div class="en">He taught love and forgiveness, bringing hope.</div>
+    </div>
+
+    <div class="block">
+      <div class="zh">他医治病人，帮助贫穷的人。</div>
+      <div class="en">He healed the sick and helped the poor.</div>
+    </div>
+
+    <div class="block">
+      <div class="zh">他为世人的罪被钉在十字架上。</div>
+      <div class="en">He was crucified for the sins of the world.</div>
+    </div>
+
+    <div class="block">
+      <div class="zh">三天后，他复活，战胜死亡。</div>
+      <div class="en">Three days later, He rose again and defeated death.</div>
+    </div>
+
+    <div class="block">
+      <div class="zh">祂带来了永恒的生命与盼望。</div>
+      <div class="en">He brought eternal life and hope.</div>
+    </div>
+
+  </div>
+
 </div>
+
 <script>
 
-/* 滚动动画 */
-function reveal() {
+/* 点击进入 */
+function startStory() {
+  document.getElementById("story").style.display = "block";
+
+  // 滚动动画触发
+  setTimeout(() => {
+    document.querySelectorAll('.block').forEach(el => {
+      el.classList.add('show');
+    });
+  }, 200);
+}
+
+/* 滚动动画（额外） */
+window.addEventListener('scroll', () => {
   document.querySelectorAll('.block').forEach(el => {
     const top = el.getBoundingClientRect().top;
     if (top < window.innerHeight - 50) {
       el.classList.add('show');
     }
   });
-}
+});
 
-window.addEventListener('scroll', reveal);
-<body>
-
-<div class="bg"></div>
-
-<div class="container">
-  <div class="title">神爱你 ❤️</div>
-  <div class="subtitle">God loves you</div>
-
-  ✅ 按钮在这里
-
-</div>
+</script>
 
 </body>
+</html>
