@@ -71,15 +71,14 @@ body {
 <div class="container">
   <div class="title">神爱你 ❤️</div>
   <div class="subtitle">God loves you</div>
-  <div class="btn" onclick="go()">进入 / Enter</div>
+  <button class="btn" onclick="go()">进入 / Enter</button>
 </div> <!-- container结束 -->
 
 <!-- 🙏 祷告按钮 -->
 <div style="position: fixed; top: 20px; left: 20px; z-index: 999;">
-function go() {
-  window.location.href = "story.html";
-}
-</script>
+  <button
+    onclick="window.location.href='pray.html'"
+    style="
       padding: 10px 18px;
       border-radius: 25px;
       border: none;
@@ -93,3 +92,10 @@ function go() {
     🙏 Prayer
   </button>
 </div>
+<script>
+function go() {
+  window.location.href = "story.html";
+}
+</script>
+</body>
+</html> 
