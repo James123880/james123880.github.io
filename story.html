@@ -1,107 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
+<title>耶稣的故事</title>
 
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  height: 100vh;
-  text-align: center;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  font-family: Arial;
+  background: #111;
   color: white;
+  padding: 30px;
+  line-height: 1.8;
 }
 
-.container {
-  background: rgba(0,0,0,0.5);
-  padding: 30px;
-  border-radius: 15px;
-  max-width: 400px;
+h1 {
+  text-align: center;
+  color: #ff4d4d;
 }
 
 button {
+  margin: 10px;
   padding: 10px 20px;
-  margin: 5px;
   border: none;
-  background: #00b4d8;
+  border-radius: 20px;
+  background: #007bff;
   color: white;
   cursor: pointer;
-  border-radius: 8px;
-  transition: 0.3s;
 }
 
-button:hover {
-  background: #0077b6;
-  transform: scale(1.05);
+.lang {
+  position: fixed;
+  top: 20px;
+  right: 20px;
 }
 </style>
-
 </head>
 
 <body>
 
-<!-- 🌐 语言按钮 -->
-<div style="position:absolute; top:20px; right:20px;">
+<div class="lang">
   <button onclick="setLang('zh')">中文</button>
   <button onclick="setLang('en')">English</button>
-  <button onclick="setLang('fr')">Français</button>
 </div>
 
-<!-- 📖 内容 -->
-<div class="container">
-  <h1 id="title"></h1>
+<h1 id="title"></h1>
 
-  <p id="p1"></p>
-  <p id="p2"></p>
-  <p id="p3"></p>
-
-  <!-- 🙏 跳转祷告页 -->
-  <button onclick="window.location.href='pray.html'" id="btn1"></button>
-
-  <br><br>
-
-  <!-- 🔙 返回首页 -->
-  <button onclick="window.location.href='index.html'" id="btn2"></button>
-</div>
+<p id="p1"></p>
+<p id="p2"></p>
+<p id="p3"></p>
+<p id="p4"></p>
+<p id="p5"></p>
 
 <script>
 function setLang(lang) {
 
   if (lang === 'zh') {
-    title.innerText = "神爱你 ❤️";
-    p1.innerText = "耶稣来到世上，医治病人，帮助穷人，传讲神的爱。";
-    p2.innerText = "他说：“神爱世人。”";
-    p3.innerText = "他为我们的罪被钉十字架，三天后复活。";
-    btn1.innerText = "🙏 我愿意相信";
-    btn2.innerText = "返回首页";
+    document.getElementById("title").innerText = "耶稣33年的故事 ✝️";
+
+    document.getElementById("p1").innerText =
+    "耶稣出生在两千多年前的伯利恒。他的降生被称为神赐给人类的礼物。他从小在拿撒勒长大，过着普通的生活。";
+
+    document.getElementById("p2").innerText =
+    "大约30岁时，耶稣开始传道。他走遍各地，教导人们爱、宽恕与真理。他医治病人，使瞎子看见，使瘸子行走。";
+
+    document.getElementById("p3").innerText =
+    "他向人们宣讲：神爱世人。他关心穷人、帮助被遗弃的人，并呼召人悔改归向神。许多人跟随他，但也有人反对他。";
+
+    document.getElementById("p4").innerText =
+    "最终，耶稣被钉在十字架上，为世人的罪献上自己的生命。但这不是结局。三天后，他从死里复活，胜过死亡。";
+
+    document.getElementById("p5").innerText =
+    "耶稣的故事不是过去，而是今天仍然活着的信息：神爱你，他愿意赐给你新的生命与盼望。";
   }
 
   if (lang === 'en') {
-    title.innerText = "God Loves You ❤️";
-    p1.innerText = "Jesus came to the world, healed the sick and helped the poor.";
-    p2.innerText = "He said: 'God loves the world.'";
-    p3.innerText = "He died for our sins and rose again after three days.";
-    btn1.innerText = "🙏 I Want to Believe";
-    btn2.innerText = "Back Home";
-  }
+    document.getElementById("title").innerText = "The Story of Jesus ✝️";
 
-  if (lang === 'fr') {
-    title.innerText = "Dieu t'aime ❤️";
-    p1.innerText = "Jésus est venu dans le monde, guérit les malades.";
-    p2.innerText = "Il a dit : Dieu aime le monde.";
-    p3.innerText = "Il est mort pour nos péchés et est ressuscité.";
-    btn1.innerText = "🙏 Je crois";
-    btn2.innerText = "Accueil";
+    document.getElementById("p1").innerText =
+    "Jesus was born over two thousand years ago in Bethlehem. His birth was a gift from God to humanity. He grew up in Nazareth and lived a simple life.";
+
+    document.getElementById("p2").innerText =
+    "At about the age of 30, Jesus began His ministry. He traveled from place to place, teaching love, forgiveness, and truth. He healed the sick and performed miracles.";
+
+    document.getElementById("p3").innerText =
+    "He proclaimed that God loves the world. He cared for the poor, helped the broken, and called people to turn back to God. Many followed Him, but some opposed Him.";
+
+    document.getElementById("p4").innerText =
+    "In the end, Jesus was crucified on a cross, giving His life for the sins of the world. But that was not the end. On the third day, He rose again, conquering death.";
+
+    document.getElementById("p5").innerText =
+    "The story of Jesus is not just history. It is a living message today: God loves you and offers you new life and hope.";
   }
 }
 
-// 默认语言
+// 默认中文
 setLang('zh');
 </script>
 
