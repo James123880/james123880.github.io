@@ -2,85 +2,90 @@
 <html lang="zh">
 <head>
 <meta charset="UTF-8">
-<title>耶稣的故事</title>
+<title>耶稣的故事 | Story of Jesus</title>
 
 <style>
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: black;
-    color: white;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  overflow-x: hidden;
 }
 
-/* 背景 */
+/* 背景（修复黑屏关键） */
 .bg {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: url('jesus.jpg') center/cover no-repeat;
-    filter: blur(8px) brightness(0.4);
-    z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('jesus.jpg') center/cover no-repeat;
+  filter: brightness(0.4) blur(3px);
+  z-index: -1; /* 🔥关键：防止遮挡 */
 }
 
-/* 内容 */
+/* 主容器 */
 .container {
-    max-width: 800px;
-    margin: auto;
-    padding: 60px 20px;
+  max-width: 800px;
+  margin: auto;
+  padding: 100px 20px;
 }
 
 /* 标题 */
 h1 {
-    text-align: center;
-    color: #ff4d4d;
+  text-align: center;
+  color: #ff4d4d;
+  font-size: 40px;
+  margin-bottom: 50px;
 }
 
-/* 内容块 */
+/* 每一段 */
 .block {
-    margin: 30px 0;
-    padding: 20px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 15px;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: 1s;
-}
-
-.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.zh {
-    font-size: 18px;
-}
-
-.en {
-    font-size: 16px;
-    color: #ccc;
-}
-
-/* 按钮 */
-button {
-    margin: 10px;
-    padding: 12px 20px;
-    border-radius: 20px;
-    border: none;
-    background: #007bff;
-    color: white;
-    cursor: pointer;
-}
-.block {
+  margin-bottom: 50px;
   opacity: 0;
   transform: translateY(50px);
   transition: all 1s ease;
-  margin: 40px 0;
 }
 
+/* 滚动出现 */
 .block.show {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* 中文 */
+.zh {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* 英文 */
+.en {
+  font-size: 16px;
+  color: #ccc;
+}
+
+/* 按钮 */
+.lang {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+button {
+  margin: 5px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 10px;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056b3;
+}
+</style>
 
 </head>
 
@@ -88,93 +93,96 @@ button {
 
 <div class="bg"></div>
 
+<!-- 语言切换 -->
+<div class="lang">
+  <button onclick="setLang('zh')">中文</button>
+  <button onclick="setLang('en')">English</button>
+</div>
+
 <div class="container">
 
-  <h1>耶稣的故事 ✝️</h1>
+<h1 id="title">耶稣的故事 ✝️</h1>
 
-  <div class="block">
-    <div class="zh">第一段内容</div>
-    <div class="en">First content</div>
-  </div>
-
-  <div class="block">
-    <div class="zh">第二段内容</div>
-    <div class="en">Second content</div>
-  </div>
-
-  <div class="block">
-    <div class="zh">第三段内容</div>
-    <div class="en">Third content</div>
-  </div>
+<!-- 第一段 -->
 <div class="block">
-  <div class="zh">第四段内容</div>
-  <div class="en">Fourth content</div>
+  <div class="zh">耶稣出生在伯利恒，这是一个谦卑的开始。</div>
+  <div class="en">Jesus was born in Bethlehem, a humble beginning.</div>
 </div>
 
+<!-- 第二段 -->
 <div class="block">
-  <div class="zh">第五段内容</div>
-  <div class="en">Fifth content</div>
+  <div class="zh">他成长于拿撒勒，过着普通的生活。</div>
+  <div class="en">He grew up in Nazareth and lived a simple life.</div>
 </div>
-  <div class="block">
-    <div class="zh">👉 我是测试段</div>
-    <div class="en">👉 TEST BLOCK</div>
-  </div>
 
-</div>
-</div>
-</div>
+<!-- 第三段 -->
 <div class="block">
-<div class="zh">耶稣出生在伯利恒，一个 humble 的开始。</div>
-<div class="en">Jesus was born in Bethlehem, a humble beginning.</div>
+  <div class="zh">约30岁时，耶稣开始传道，教导爱与真理。</div>
+  <div class="en">At about age 30, Jesus began to preach love and truth.</div>
 </div>
 
+<!-- 第四段 -->
 <div class="block">
-<div class="zh">他医治病人，教导人爱与真理。</div>
-<div class="en">He healed the sick and taught love and truth.</div>
+  <div class="zh">他医治病人，使瞎眼得看见。</div>
+  <div class="en">He healed the sick and gave sight to the blind.</div>
 </div>
 
+<!-- 第五段 -->
 <div class="block">
-<div class="zh">他被钉在十字架上，为世人的罪牺牲。</div>
-<div class="en">He was crucified, sacrificing for the sins of the world.</div>
+  <div class="zh">他教导人们彼此相爱，饶恕他人。</div>
+  <div class="en">He taught people to love one another and forgive.</div>
 </div>
 
+<!-- 第六段 -->
 <div class="block">
-<div class="zh">三天后，他复活了。</div>
-<div class="en">Three days later, He rose again.</div>
+  <div class="zh">最终，耶稣被钉在十字架上，为世人的罪而死。</div>
+  <div class="en">Eventually, Jesus was crucified for the sins of the world.</div>
 </div>
 
-<div style="text-align:center;">
-<button onclick="location.href='index.html'">返回首页</button>
+<!-- 第七段 -->
+<div class="block">
+  <div class="zh">三天后，他复活，战胜死亡。</div>
+  <div class="en">Three days later, He rose again and defeated death.</div>
+</div>
+
+<!-- 第八段 -->
+<div class="block">
+  <div class="zh">他的故事至今仍在改变世界。</div>
+  <div class="en">His story continues to change the world today.</div>
 </div>
 
 </div>
 
 <script>
+/* 滚动动画 */
 const blocks = document.querySelectorAll('.block');
 
 window.addEventListener('scroll', () => {
-    blocks.forEach(block => {
-        const top = block.getBoundingClientRect().top;
-        if (top < window.innerHeight - 50) {
-            block.classList.add('show');
-        }
-    });
-});
-<script>
-const blocks = document.querySelectorAll('.block');
-
-function showBlocks() {
   blocks.forEach(block => {
     const top = block.getBoundingClientRect().top;
     if (top < window.innerHeight - 50) {
       block.classList.add('show');
     }
   });
+});
+
+/* 语言切换 */
+function setLang(lang) {
+  document.querySelectorAll('.zh').forEach(el => {
+    el.style.display = (lang === 'zh') ? 'block' : 'none';
+  });
+
+  document.querySelectorAll('.en').forEach(el => {
+    el.style.display = (lang === 'en') ? 'block' : 'none';
+  });
+
+  document.getElementById("title").innerText =
+    (lang === 'zh') ? "耶稣的故事 ✝️" : "Story of Jesus ✝️";
 }
 
-// 👉 关键这一行（新增）
-showBlocks();
-showBlocks
-// 👉 保留滚动监听
-window.addEventListener('scroll', showBlocks);
+/* 默认中文 */
+setLang('zh');
 </script>
+
+</body>
+</html>
