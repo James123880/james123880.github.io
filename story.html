@@ -84,7 +84,7 @@ button {
 
 </head>
 
-<body>
+</body>
 
 <div class="bg"></div>
 
@@ -106,7 +106,15 @@ button {
     <div class="zh">第三段内容</div>
     <div class="en">Third content</div>
   </div>
+<div class="block">
+  <div class="zh">第四段内容</div>
+  <div class="en">Fourth content</div>
+</div>
 
+<div class="block">
+  <div class="zh">第五段内容</div>
+  <div class="en">Fifth content</div>
+</div>
   <div class="block">
     <div class="zh">👉 我是测试段</div>
     <div class="en">👉 TEST BLOCK</div>
@@ -153,17 +161,21 @@ window.addEventListener('scroll', () => {
     });
 });
 </script>
-
-</body><script>
+<script>
 const blocks = document.querySelectorAll('.block');
 
-window.addEventListener('scroll', () => {
+function showBlocks() {
   blocks.forEach(block => {
     const top = block.getBoundingClientRect().top;
     if (top < window.innerHeight - 50) {
       block.classList.add('show');
     }
   });
-});
+}
+
+// 👉 关键这一行（新增）
+showBlocks();
+
+// 👉 保留滚动监听
+window.addEventListener('scroll', showBlocks);
 </script>
-</html>
