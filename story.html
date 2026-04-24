@@ -63,12 +63,7 @@ body {
 }
 
 /* 故事 */
-.block {
-  margin: 40px 0;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 1s;
-}
+<div id="story" style="display:none;">
 
 .block.show {
   opacity: 1;
@@ -86,35 +81,37 @@ body {
 </head>
 <body>
 
+<!-- 语言按钮 -->
 <div style="position: fixed; top: 20px; right: 20px;">
   <button onclick="setLang('zh')">中文</button>
   <button onclick="setLang('en')">English</button>
 </div>
 
+<body>
+ 
+
 <div class="overlay"></div>
+
 <div class="container">
 
-  <!-- 标题 -->
-  <div class="title">耶稣的故事 ✝️</div>
-  <div class="subtitle">Story of Jesus</div>
+  <div class="title zh">耶稣的故事 ✝️</div>
+  <div class="title en">Story of Jesus ✝️</div>
 
- <div class="btn" onclick="window.location.href='>
-   Enter
-</div>
-  <!-- 故事 -->
- </head>
-<div id="story" style="display:block;">
-  <body>
+  <div class="btn" onclick="window.location.href='story.html'">
+    进入 / Enter
+  </div>
 
-<div style="position: fixed; top: 20px; right: 20px;">
-  <button onclick="setLang('zh')">中文</button>
-  <button onclick="setLang('en')">English</button>
 </div>
 
-<div class="overlay"></div>
-    <div class="story">
+<!-- 👇故事内容要放在这里！ -->
+<div class="block">
+  <div class="zh">耶稣出生在伯利恒，这是一个谦卑的开始。</div>
+  <div class="en">Jesus was born in Bethlehem, a humble beginning.</div>
+</div>
+  <div class="zh">中文内容</div>
+<div class="en">English content</div>
 
-  <p>很久以前，在伯利恒，有一个婴孩诞生，他的名字叫耶稣。</p>
+</body>
 
   <p>他带来了爱、希望与光明，医治病人，安慰伤心的人。</p>
 
@@ -146,16 +143,26 @@ body {
   </button>
 </div>
 <script>
-function setLang(lang) {
-  document.querySelectorAll('.zh').forEach(el => {
-    el.style.display = (lang === 'zh') ? 'block' : 'none';
-  });
+function showStory() {
+  document.getElementById("story").style.display = "block";
 
-  document.querySelectorAll('.en').forEach(el => {
-    el.style.display = (lang === 'en') ? 'block' : 'none';
-  });
+
+}
+<script>
+function showStory() {
+  document.getElementById("story").style.display = "block";
 }
 
-// 默认chinese
-setLang('zh');
+function setLang(lang) {
+  const zh = document.querySelectorAll('.zh');
+  const en = document.querySelectorAll('.en');
+
+  if (lang === 'zh') {
+    zh.forEach(el => el.style.display = 'block');
+    en.forEach(el => el.style.display = 'none');
+  } else {
+    zh.forEach(el => el.style.display = 'none');
+    en.forEach(el => el.style.display = 'block');
+  }
+}
 </script>
