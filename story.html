@@ -83,13 +83,15 @@ body {
   font-size: 16px;
   color: #ccc;
 }
-</style>
 </head>
-
 <body>
 
-<div class="overlay"></div>
+<div style="position: fixed; top: 20px; right: 20px;">
+  <button onclick="setLang('zh')">中文</button>
+  <button onclick="setLang('en')">English</button>
+</div>
 
+<div class="overlay"></div>
 <div class="container">
 
   <!-- 标题 -->
@@ -135,3 +137,17 @@ body {
     ⬅️ 返回首页 / Home
   </button>
 </div>
+<script>
+function setLang(lang) {
+  document.querySelectorAll('.zh').forEach(el => {
+    el.style.display = (lang === 'zh') ? 'block' : 'none';
+  });
+
+  document.querySelectorAll('.en').forEach(el => {
+    el.style.display = (lang === 'en') ? 'block' : 'none';
+  });
+}
+
+// 默认中文
+setLang('zh');
+</script>
