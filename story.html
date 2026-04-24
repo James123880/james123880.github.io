@@ -12,7 +12,7 @@ body {
   background: url('jesus.jpg') no-repeat center center/cover;
 }
 
-/* 背景遮罩 */
+/* 背景遮罩（不会挡按钮） */
 .overlay {
   position: fixed;
   top: 0;
@@ -20,9 +20,10 @@ body {
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.6);
+  z-index: 0;
 }
 
-/* 内容容器 */
+/* 内容 */
 .container {
   position: relative;
   z-index: 2;
@@ -39,11 +40,11 @@ h1 {
   color: #ff4d4d;
 }
 
-/* 每段 */
+/* 段落动画 */
 .block {
   margin-bottom: 30px;
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(40px);
   transition: all 1s;
 }
 
@@ -54,12 +55,11 @@ h1 {
 
 .zh {
   font-size: 20px;
-  margin-bottom: 8px;
 }
 
 .en {
   font-size: 16px;
-  color: #ddd;
+  color: #ccc;
 }
 
 /* 语言按钮 */
@@ -67,6 +67,7 @@ h1 {
   position: fixed;
   top: 20px;
   right: 20px;
+  z-index: 10;
 }
 
 .lang button {
@@ -79,21 +80,21 @@ h1 {
   cursor: pointer;
 }
 
-/* 祷告按钮 */
+/* 祷告按钮（不会被挡） */
 .pray {
   position: fixed;
   top: 20px;
   left: 20px;
+  z-index: 10;
 }
 
 .pray button {
   padding: 10px 18px;
   border-radius: 20px;
   border: none;
-  background: rgba(0, 123, 255, 0.7);
+  background: rgba(0,123,255,0.8);
   color: white;
   cursor: pointer;
-  backdrop-filter: blur(8px);
   box-shadow: 0 0 10px rgba(0,123,255,0.6);
 }
 </style>
@@ -103,21 +104,22 @@ h1 {
 
 <div class="overlay"></div>
 
-<!-- 语言切换 -->
+<!-- 左上祷告按钮 -->
+<div class="pray">
+  <button onclick="window.location.href='pray.html'">
+    🙏 Prayer
+  </button>
+</div>
+
+<!-- 右上语言 -->
 <div class="lang">
   <button onclick="setLang('zh')">中文</button>
   <button onclick="setLang('en')">English</button>
 </div>
 
-<!-- 祷告按钮 -->
-<div class="pray">
-  <button onclick="window.location.href='pray.html'">🙏 Prayer</button>
-</div>
-
 <div class="container">
   <h1>耶稣的故事 ✝️</h1>
 
-  <!-- 段落 -->
   <div class="block">
     <div class="zh">耶稣出生在伯利恒，这是一个谦卑的开始。</div>
     <div class="en">Jesus was born in Bethlehem, a humble beginning.</div>
@@ -149,8 +151,8 @@ h1 {
   </div>
 
   <div class="block">
-    <div class="zh">他给世人带来了永恒的盼望。</div>
-    <div class="en">He brought eternal hope to the world.</div>
+    <div class="zh">他带来了爱、希望与永生。</div>
+    <div class="en">He brought love, hope, and eternal life.</div>
   </div>
 
 </div>
@@ -158,17 +160,19 @@ h1 {
 <script>
 
 /* 滚动动画 */
-window.addEventListener('scroll', () => {
+function reveal() {
   document.querySelectorAll('.block').forEach(el => {
     const top = el.getBoundingClientRect().top;
     if (top < window.innerHeight - 50) {
       el.classList.add('show');
     }
   });
-});
+}
 
-/* 页面加载自动触发 */
-window.dispatchEvent(new Event('scroll'));
+window.addEventListener('scroll', reveal);
+
+/* 页面加载就触发 */
+window.onload = reveal;
 
 /* 语言切换 */
 function setLang(lang) {
@@ -183,8 +187,8 @@ function setLang(lang) {
 
 /* 默认中文 */
 setLang('zh');
-
+onclick="window.location.href='story.html'"
 </script>
-<div class="btn" onclick="window.location.href='story.html'">
-  进入 / Enter
-</div>
+
+</body>
+</html>
