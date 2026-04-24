@@ -72,27 +72,22 @@ body {
   <div class="title">神爱你 ❤️</div>
   <div class="subtitle">God loves you</div>
   <div class="btn" onclick="go()">进入 / Enter</div>
-</div>
+</div> <!-- container结束 -->
 
-<script>
-</script>
-<div style="position: fixed; top: 20px; left: 20px;">
+<!-- 🙏 祷告按钮 -->
+<div style="position: fixed; top: 20px; left: 20px; z-index: 999;">
   <button 
     onclick="window.location.href='pray.html'"
     style="
       padding: 10px 18px;
-      border-radius: 20px;
+      border-radius: 25px;
       border: none;
-      background: rgba(0, 123, 255, 0.7);
+      background: linear-gradient(45deg, #00c6ff, #007bff);
       color: white;
       font-size: 14px;
       cursor: pointer;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 0 10px rgba(0,123,255,0.6);
-      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(0,123,255,0.6);
     "
-    onmouseover="this.style.background='rgba(0,123,255,1)'"
-    onmouseout="this.style.background='rgba(0,123,255,0.7)'"
   >
     🙏 Prayer
   </button>
