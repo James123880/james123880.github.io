@@ -2,150 +2,152 @@
 <html lang="zh">
 <head>
 <meta charset="UTF-8">
-<title>耶稣的故事 | Story of Jesus</title>
+<title>Story of Jesus</title>
 
 <style>
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  background: #000;
   color: white;
-  background: url('jesus.jpg') center/cover no-repeat;
+  text-align: center;
 }
 
-/* 黑色遮罩 */
+/* 背景图 */
+body {
+  background: url('jesus.jpg') no-repeat center center/cover;
+}
+
+/* 遮罩 */
 .overlay {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.5);
 }
 
-/* 内容 */
+/* 容器 */
 .container {
   position: relative;
   z-index: 2;
-  max-width: 800px;
-  margin: auto;
-  padding: 100px 20px;
-  text-align: center;
+  padding-top: 100px;
 }
 
 /* 标题 */
 .title {
-  font-size: 42px;
-  color: #ff4d4d;
-  margin-bottom: 20px;
+  font-size: 32px;
+  margin-bottom: 10px;
 }
 
-/* 副标题 */
 .subtitle {
   font-size: 18px;
   color: #ccc;
+  margin-bottom: 30px;
 }
 
 /* 按钮 */
 .btn {
-  margin-top: 40px;
-  padding: 15px 45px;
-  border-radius: 50px;
-  border: none;
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: 25px;
   background: linear-gradient(45deg, #00c6ff, #007bff);
-  color: white;
-  font-size: 20px;
   cursor: pointer;
-  box-shadow: 0 0 25px rgba(0,123,255,0.8);
-  transition: all 0.3s ease;
+  margin-bottom: 30px;
 }
 
-.btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 40px rgba(0,123,255,1);
+/* 故事块 */
+.block {
+  margin: 20px auto;
+  max-width: 600px;
 }
 
-/* 故事 */
-<div id="story" style="display:none;">
-
-.block.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
+/* 中文 */
 .zh {
   font-size: 20px;
 }
 
+/* 英文 */
 .en {
   font-size: 16px;
   color: #ccc;
 }
+
+/* 语言按钮 */
+.lang {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+.lang button {
+  margin-left: 5px;
+  padding: 5px 10px;
+}
+</style>
+
 </head>
 <body>
 
-<!-- 语言按钮 -->
-<div style="position: fixed; top: 20px; right: 20px;">
+<!-- 语言切换 -->
+<div class="lang">
   <button onclick="setLang('zh')">中文</button>
   <button onclick="setLang('en')">English</button>
 </div>
-
-<body>
- 
 
 <div class="overlay"></div>
 
 <div class="container">
 
+  <!-- 标题 -->
   <div class="title zh">耶稣的故事 ✝️</div>
   <div class="title en">Story of Jesus ✝️</div>
 
-  <div class="btn" onclick="window.location.href='story.html'">
-    进入 / Enter
+  <div class="subtitle zh">点击开始</div>
+  <div class="subtitle en">Click to begin</div>
+
+  <!-- 按钮 -->
+  <div class="btn" onclick="showStory()">进入 / Enter</div>
+
+  <!-- 故事（默认隐藏） -->
+  <div id="story" style="display:none;">
+
+    <div class="block">
+      <div class="zh">耶稣出生在伯利恒，这是一个谦卑的开始。</div>
+      <div class="en">Jesus was born in Bethlehem, a humble beginning.</div>
+    </div>
+
+    <div class="block">
+      <div class="zh">他带来了爱、希望与光明，医治病人，安慰伤心的人。</div>
+      <div class="en">He brought love, hope and light, healing the sick and comforting the broken.</div>
+    </div>
+
+    <div class="block">
+      <div class="zh">他教导人们彼此相爱，饶恕别人，心存善良。</div>
+      <div class="en">He taught people to love one another and forgive.</div>
+    </div>
+
+    <div class="block">
+      <div class="zh">但他最终被钉在十字架上，为世人的罪献上自己。</div>
+      <div class="en">He was crucified, giving His life for the sins of the world.</div>
+    </div>
+
+    <div class="block">
+      <div class="zh">三天后，他从死里复活，战胜了死亡。</div>
+      <div class="en">Three days later, He rose again, defeating death.</div>
+    </div>
+
+    <div class="block">
+      <div class="zh">他的爱直到今天仍然存在。</div>
+      <div class="en">His love still lives today.</div>
+    </div>
+
   </div>
 
 </div>
 
-<!-- 👇故事内容要放在这里！ -->
-<div class="block">
-  <div class="zh">耶稣出生在伯利恒，这是一个谦卑的开始。</div>
-  <div class="en">Jesus was born in Bethlehem, a humble beginning.</div>
-</div>
- 
-</body>
-
-  <p>他带来了爱、希望与光明，医治病人，安慰伤心的人。</p>
-
-  <p>他教导人们彼此相爱，饶恕别人，心存善良。</p>
-
-  <p>但他最终被钉在十字架上，为世人的罪献上自己。</p>
-
-  <p>三天后，他从死里复活，战胜了死亡。</p>
-
-  <p>他的爱直到今天仍然存在。</p>
-
-</div>
-
-<div style="position: fixed; top: 20px; left: 20px; z-index: 999;">
-  <button 
-    onclick="window.location.href='index.html'"
-    style="
-      padding: 10px 18px;
-      border-radius: 25px;
-      border: none;
-      background: linear-gradient(45deg, #00c6ff, #007bff);
-      color: white;
-      font-size: 14px;
-      cursor: pointer;
-      box-shadow: 0 0 15px rgba(0,123,255,0.6);
-    "
-  >
-    ⬅️ 返回首页 / Home
-  </button>
-</div>
-<script>
-function showStory() {
-  document.getElementById("story").style.display = "block";
-
-
-}
 <script>
 function showStory() {
   document.getElementById("story").style.display = "block";
@@ -158,5 +160,15 @@ function setLang(lang) {
   if (lang === 'zh') {
     zh.forEach(el => el.style.display = 'block');
     en.forEach(el => el.style.display = 'none');
- 
+  } else {
+    zh.forEach(el => el.style.display = 'none');
+    en.forEach(el => el.style.display = 'block');
+  }
+}
+
+/* 默认中文 */
+setLang('zh');
 </script>
+
+</body>
+</html>
