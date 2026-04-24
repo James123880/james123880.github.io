@@ -9,7 +9,6 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   color: white;
-  overflow-x: hidden;
 }
 
 /* 背景 */
@@ -22,12 +21,12 @@ body {
   z-index: -2;
 }
 
-/* 黑色遮罩 */
+/* 遮罩 */
 .overlay {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.6);
   z-index: -1;
 }
 
@@ -36,25 +35,26 @@ body {
   max-width: 900px;
   margin: auto;
   padding: 100px 20px;
-  text-align: center;
 }
 
 /* 标题 */
 h1 {
+  text-align: center;
   color: #ff4d6d;
-  font-size: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
-/* 段落块 */
+/* 每一段 */
 .block {
-  margin: 40px 0;
+  display: flex;
+  gap: 20px;
+  margin: 30px 0;
   opacity: 0;
   transform: translateY(40px);
   transition: all 1s ease;
 }
 
-/* 动画出现 */
+/* 出现动画 */
 .block.show {
   opacity: 1;
   transform: translateY(0);
@@ -62,41 +62,39 @@ h1 {
 
 /* 中文 */
 .zh {
-  font-size: 22px;
-  margin-bottom: 10px;
+  flex: 1;
+  font-size: 20px;
+  line-height: 1.6;
 }
 
 /* 英文 */
 .en {
+  flex: 1;
   font-size: 18px;
   color: #ccc;
+  line-height: 1.6;
 }
 
-/* 语言按钮 */
-.lang {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-}
-
-.lang button {
-  margin: 5px;
-  padding: 8px 15px;
-  border: none;
-  border-radius: 20px;
-  background: #007bff;
-  color: white;
-  cursor: pointer;
+/* 手机适配 */
+@media (max-width: 768px) {
+  .block {
+    flex-direction: column;
+  }
 }
 
 /* 返回按钮 */
 .back {
-  margin-top: 50px;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.back button {
   padding: 12px 25px;
-  background: #007bff;
+  border: none;
   border-radius: 25px;
+  background: #007bff;
+  color: white;
   cursor: pointer;
-  display: inline-block;
 }
 </style>
 </head>
@@ -105,12 +103,6 @@ h1 {
 
 <div class="bg"></div>
 <div class="overlay"></div>
-
-<!-- 语言切换 -->
-<div class="lang">
-  <button onclick="setLang('zh')">中文</button>
-  <button onclick="setLang('en')">English</button>
-</div>
 
 <div class="container">
 
@@ -156,7 +148,9 @@ h1 {
   <div class="en">Today, He is alive and offers new life and hope.</div>
 </div>
 
-<div class="back" onclick="goHome()">🏠 返回首页</div>
+<div class="back">
+  <button onclick="goHome()">🏠 返回首页 / Home</button>
+</div>
 
 </div>
 
@@ -173,25 +167,13 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// 语言切换
-function setLang(lang) {
-  document.querySelectorAll('.zh').forEach(el => {
-    el.style.display = (lang === 'zh') ? 'block' : 'none';
-  });
-
-  document.querySelectorAll('.en').forEach(el => {
-    el.style.display = (lang === 'en') ? 'block' : 'none';
-  });
-}
+// 页面一打开就触发动画
+window.dispatchEvent(new Event('scroll'));
 
 // 返回首页
 function goHome() {
   window.location.href = "index.html";
 }
-
-// 默认语言 + 强制触发动画
-setLang('zh');
-window.dispatchEvent(new Event('scroll'));
 </script>
 
 </body>
