@@ -1,26 +1,20 @@
-<audio autoplay loop muted id="music">
-  <source src="bgm.mp3" type="audio/mpeg">
-</audio>
-<script>
-document.body.addEventListener('click', () => {
-  const music = document.getElementById('music');
-  music.muted = false;
-  music.play();
-});
-</script>
-<button onclick="toggleMusic()">🎵 音乐</button>
+<button onclick="toggleMusic()" id="musicBtn">
+  🔊 播放音乐
+</button>
 
-<audio id="music" loop>
-  <source src="bgm.mp3" type="audio/mpeg">
-</audio>
+<audio id="music" src="music.mp3" loop></audio>
 
 <script>
 function toggleMusic() {
-  const m = document.getElementById('music');
-  if (m.paused) {
-    m.play();
+  const music = document.getElementById("music");
+  const btn = document.getElementById("musicBtn");
+
+  if (music.paused) {
+    music.play();
+    btn.innerText = "🔇 关闭音乐";
   } else {
-    m.pause();
+    music.pause();
+    btn.innerText = "🔊 播放音乐";
   }
 }
 </script>
