@@ -1,23 +1,112 @@
-<button onclick="togglePrayer()" id="btn">
-  🙏 显示主祷文
-</button>
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>主祷文</title>
 
-<div id="prayerBox" style="display:none; margin-top:20px; border:1px solid #ccc; padding:15px; border-radius:10px;">
-  <h2>主祷文</h2>
-  <p>
-    我们在天上的父，愿人都尊你的名为圣。<br>
-    愿你的国降临。愿你的旨意行在地上，如同行在天上。<br>
-    我们日用的饮食，今日赐给我们。<br>
-    免我们的债，如同我们免了人的债。<br>
-    不叫我们遇见试探，救我们脱离凶恶。<br>
-    因为国度、权柄、荣耀，全是你的，直到永远。阿们。
-  </p>
-</div>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+      color: white;
+      text-align: center;
+      padding: 50px;
+    }
 
-<script>
-function goPrayer() {
-  window.location.href = "pray.html";
-}
-</script>
-  <div onclick="goPage('pray.html')">🙏 主祷文</div>
-<div onclick="goPage('bible.html')">📖 圣经</div>
+    h1 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(45deg, #00c6ff, #0072ff);
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    .card {
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      display: none;
+    }
+
+    p {
+      line-height: 1.8;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>🙏 主祷文</h1>
+
+  <button onclick="togglePrayer()" id="btn">
+    点击显示主祷文
+  </button>
+
+  <div id="prayerBox" class="card">
+    <h2>主祷文</h2>
+
+    <p>
+      我们在天上的父，愿人都尊你的名为圣。<br><br>
+      愿你的国降临，愿你的旨意行在地上，如同行在天上。<br><br>
+      我们日用的饮食，今日赐给我们。<br><br>
+      免我们的债，如同我们免了人的债。<br><br>
+      不叫我们遇见试探，救我们脱离凶恶。<br><br>
+      因为国度、权柄、荣耀，全是你的，直到永远。阿们。
+    </p>
+
+    <hr style="margin:20px 0;">
+
+    <p>
+      Our Father in heaven,<br><br>
+      hallowed be your name,<br><br>
+      your kingdom come,<br><br>
+      your will be done,<br><br>
+      on earth as it is in heaven.<br><br>
+      Give us today our daily bread.<br><br>
+      And forgive us our debts,<br><br>
+      as we also have forgiven our debtors.<br><br>
+      And lead us not into temptation,<br><br>
+      but deliver us from the evil one.<br><br>
+      For yours is the kingdom and the power and the glory forever. Amen.
+    </p>
+  </div>
+
+  <!-- 音乐（可选） -->
+  <audio id="music" src="prayer.mp3" loop></audio>
+
+  <script>
+    function togglePrayer() {
+      const box = document.getElementById("prayerBox");
+      const btn = document.getElementById("btn");
+      const music = document.getElementById("music");
+
+      if (box.style.display === "none" || box.style.display === "") {
+        box.style.display = "block";
+        btn.innerText = "隐藏主祷文";
+
+        // 播放音乐（第一次点击才允许）
+        music.play().catch(()=>{});
+      } else {
+        box.style.display = "none";
+        btn.innerText = "点击显示主祷文";
+      }
+    }
+  </script>
+
+</body>
+</html>
