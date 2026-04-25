@@ -11,12 +11,22 @@
   color: white;
 }
 
+body {
+  margin: 0;
+  font-family: Arial;
+  color: white;
+
+  background: url('jesus.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* 可选遮罩 */
 body::before {
   content: "";
   position: fixed;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.3); /* 调这里 */
   top: 0;
   left: 0;
   z-index: -1;
