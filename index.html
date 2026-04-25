@@ -54,15 +54,26 @@
 
 <body>
 
-<h1>🙏 The Lord’s Prayer</h1>
+<h1>🙏 主祷文</h1>
 
-<button onclick="togglePrayer()" id="btn">
-  Show Prayer
-</button>
+<button onclick="togglePrayer()">点击显示主祷文</button>
 
-<div id="prayerBox" class="card">
-  <h2>The Lord’s Prayer</h2>
+<!-- 👇 加在这里 -->
+<button onclick="goStory()">📖 Matthew 1</button>
 
+<!-- 你的祷文内容 -->
+<div id="prayerBox">
+  ...
+</div>
+
+<!-- 👇 放这里（底部） -->
+<script>
+function goStory() {
+  window.location.href = "story.html";
+}
+</script>
+
+</body>
   <p>
     Our Father in heaven,<br><br>
     hallowed be your name.<br><br>
