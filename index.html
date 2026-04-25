@@ -2,59 +2,98 @@
 <html lang="zh">
 <head>
 <meta charset="UTF-8">
-<title>敬拜模式 Worship</title>
+<title>Jesus Film Opening</title>
 
 <style>
 body {
   margin: 0;
-  height: 100vh;
-  background: url('jesus.jpg') center/cover no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
+  overflow: hidden;
   font-family: Arial;
+  background: black;
+  color: white;
 }
 
-/* 黑色渐变遮罩（电影感） */
+/* 背景 */
+.bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('jesus.jpg') center/cover no-repeat;
+  opacity: 0;
+  animation: fadeIn 3s forwards;
+}
+
+/* 黑色遮罩 */
 .overlay {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.6);
+  background: radial-gradient(circle, rgba(0,0,0,0.2), rgba(0,0,0,0.9));
 }
 
 /* 中间内容 */
 .container {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
+}
+
+/* 标题动画 */
+.title {
+  font-size: 48px;
+  opacity: 0;
+  letter-spacing: 5px;
+  animation: titleFade 4s forwards;
+}
+
+.subtitle {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #ccc;
+  opacity: 0;
+  animation: titleFade 4s forwards 2s;
 }
 
 /* 按钮 */
 .btn {
-  margin-top: 20px;
+  margin-top: 40px;
   padding: 15px 40px;
-  font-size: 18px;
   background: linear-gradient(45deg, #00c6ff, #007bff);
   border-radius: 50px;
   cursor: pointer;
+  opacity: 0;
+  animation: fadeIn 3s forwards 4s;
   transition: 0.3s;
 }
 
 .btn:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 25px rgba(0,123,255,0.8);
+  box-shadow: 0 0 30px rgba(0,123,255,0.8);
+}
+
+/* 动画 */
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes titleFade {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 </style>
 </head>
 
 <body>
 
+<div class="bg"></div>
 <div class="overlay"></div>
 
 <div class="container">
-  <h1>🙏 敬拜模式</h1>
-  <div class="btn" onclick="startWorship()">进入敬拜</div>
+  <div class="title">耶稣的故事 ✝️</div>
+  <div class="subtitle">Story of Jesus</div>
+  <div class="btn" onclick="enter()">进入 / Enter</div>
 </div>
 
 <!-- 🎵 音乐 -->
@@ -63,29 +102,34 @@ body {
 </audio>
 
 <script>
+// 🎵 点击后音乐渐入
 let started = false;
 
-function startWorship() {
-  if (started) return;
-
+function enter() {
   const music = document.getElementById("music");
 
-  music.muted = false;
-  music.volume = 0;
-  music.play();
+  if (!started) {
+    music.muted = false;
+    music.volume = 0;
+    music.play();
 
-  // 🔥 音量渐入
-  let vol = 0;
-  let fade = setInterval(() => {
-    if (vol < 1) {
-      vol += 0.02;
-      music.volume = vol;
-    } else {
-      clearInterval(fade);
-    }
-  }, 100);
+    let vol = 0;
+    let fade = setInterval(() => {
+      if (vol < 1) {
+        vol += 0.02;
+        music.volume = vol;
+      } else {
+        clearInterval(fade);
+      }
+    }, 100);
 
-  started = true;
+    started = true;
+  }
+
+  // 🎬 跳转下一页（延迟更有电影感）
+  setTimeout(() => {
+    window.location.href = "story.html";
+  }, 1500);
 }
 </script>
 
