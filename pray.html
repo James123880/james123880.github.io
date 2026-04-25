@@ -19,12 +19,5 @@ function goPrayer() {
   window.location.href = "pray.html";
 }
 </script>
-  if (box.style.display === "none") {
-    box.style.display = "block";
-    btn.innerText = "🙏 隐藏主祷文";
-  } else {
-    box.style.display = "none";
-    btn.innerText = "🙏 显示主祷文";
-  }
-}
-</script>
+  <div onclick="goPage('pray.html')">🙏 主祷文</div>
+<div onclick="goPage('bible.html')">📖 圣经</div>
