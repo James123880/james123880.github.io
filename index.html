@@ -1,5 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>Jesus Website</title>
+
+<style>
+body {
+  margin: 0;
+  background: url('jesus.jpg') no-repeat center center/cover;
+  color: white;
+  text-align: center;
+}
+
+/* 按钮 */
 .btn {
   padding: 15px 40px;
   font-size: 18px;
@@ -14,15 +27,10 @@
   transform: scale(1.1);
   box-shadow: 0 0 25px rgba(0,123,255,0.8);
 }
-.container {
-  position: relative;
-  top: 30%;
-}
 
-/* 标题 */
 .title {
   font-size: 42px;
-  margin-bottom: 10px;
+  margin-top: 200px;
 }
 
 .subtitle {
@@ -30,38 +38,16 @@
   color: #ccc;
   margin-bottom: 30px;
 }
-
-/* 按钮 */
-.btn {
-  padding: 15px 30px;
-  font-size: 18px;
-  background: linear-gradient(45deg, #00c6ff, #007bff);
-  border-radius: 30px;
-  cursor: pointer;
-  display: inline-block;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(0,123,255,0.8);
-}
 </style>
 
 </head>
 
 <body>
 
-<div class="overlay"></div>
+<div class="title">耶稣的故事 ✝️</div>
+<div class="subtitle">Story of Jesus</div>
 
-<div class="container">
-
-  <div class="title">耶稣的故事 ✝️</div>
-  <div class="subtitle">Story of Jesus</div>
-
-  <div class="btn" onclick="enter()">进入 / Enter</div>
-
-</div>
+<div class="btn" onclick="enter()">进入 / Enter</div>
 
 <script>
 function enter() {
