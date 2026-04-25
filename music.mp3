@@ -1,1 +1,21 @@
+<audio id="bgm" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 
+<div class="btn" onclick="toggleMusic()">🎵 音乐开关</div>
+
+<script>
+let playing = false;
+
+function toggleMusic() {
+  const music = document.getElementById("bgm");
+
+  if (!playing) {
+    music.play();
+    playing = true;
+  } else {
+    music.pause();
+    playing = false;
+  }
+}
+</script>
