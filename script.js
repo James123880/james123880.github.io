@@ -21,13 +21,6 @@ function showBlocks() {
     }, i * 600);
   });
 }
-
-// 音乐
-function toggleMusic() {
-  const music = document.getElementById("bgm");
-  if (music.paused) {
-    music.play();
-  } else {
-    music.pause();
-  }
+function goPrayer() {
+  window.location.href = "prayer.html";
 }
