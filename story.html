@@ -1,151 +1,42 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Jesus Story</title>
+<title>Matthew 1 Summary</title>
 
 <style>
 body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: url('jesus.jpg') no-repeat center center/cover;
-}
-.container {
+  font-family: Arial;
   text-align: center;
+  background: black;
+  color: white;
+  padding: 40px;
 }
 
-.overlay {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
+.card {
+  max-width: 700px;
+  margin: auto;
+  padding: 25px;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.1);
 }
 
-.container {
-  position: relative;
-  padding-top: 80px;
-}
-
-.btn {
-  padding: 12px 25px;
-  background: #007bff;
-  border-radius: 25px;
-  cursor: pointer;
-  display: inline-block;
-  margin: 20px;
-}
-
-/* 🌟 动画 */
-.block {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.8s ease;
-  margin: 20px;
-}
-
-.block.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.zh { font-size: 20px; }
-.en { font-size: 16px; color: #ccc; }
-
-.lang {
-  position: fixed;
-  top: 20px;
-  right: 20px;
+p {
+  line-height: 1.8;
 }
 </style>
 </head>
 
 <body>
 
-<div class="lang">
-  <button onclick="setLang('zh')">中文</button>
-  <button onclick="setLang('en')">English</button>
+<h1>📖 Matthew Chapter 1</h1>
+
+<div class="card">
+  <p>
+    Matthew Chapter 1 begins with the genealogy of Jesus Christ...
+    <!-- 这里粘完整内容 -->
+  </p>
 </div>
-
-<div class="overlay"></div>
-
-<div class="container">
-
-  <h1 class="zh">耶稣的故事</h1>
-  <h1 class="en">Story of Jesus</h1>
-
-  <div class="btn" onclick="startStory()">开始阅读 / Start</div>
-
-  <!-- 内容区域 -->
-  <div id="story"></div>
-
-</div>
-
-<script>
-
-/* 🌍 圣经数据（示例：马太福音1章部分） */
-const bibleData = [
-  {
-    zh: "亚伯拉罕的后裔，大卫的子孙耶稣基督的家谱。",
-    en: "The genealogy of Jesus Christ, the son of David, the son of Abraham."
-  },
-  {
-    zh: "亚伯拉罕生以撒，以撒生雅各，雅各生犹大和他的弟兄。",
-    en: "Abraham was the father of Isaac, Isaac the father of Jacob."
-  },
-  {
-    zh: "雅各生约瑟，就是马利亚的丈夫，那称为基督的耶稣是从马利亚生的。",
-    en: "Jacob was the father of Joseph, the husband of Mary."
-  },
-  {
-    zh: "耶稣基督降生的事记在下面。",
-    en: "This is how the birth of Jesus Christ came about."
-  },
-  {
-    zh: "必有童女怀孕生子，人要称他的名为以马内利。",
-    en: "The virgin will conceive and give birth to a son, and they will call him Immanuel."
-  }
-];
-/* 🚀 开始加载 */
-function startStory() {
-  const container = document.getElementById("story");
-  container.innerHTML = "";
-  bibleData.forEach((verse, index) => {
-    const div = document.createElement("div");
-    div.className = "block";
-
-    div.innerHTML = `
-      <div class="zh">${verse.zh}</div>
-      <div class="en">${verse.en}</div>
-    `;
-
-    container.appendChild(div);
-
-    /* ⏳ 逐段动画 */
-    setTimeout(() => {
-      div.classList.add("show");
-    }, index * 800);
-  });
-}
-/* 🌐 语言切换 */
-function setLang(lang) {
-  const zh = document.querySelectorAll('.zh');
-  const en = document.querySelectorAll('.en');
-
-  if (lang === 'zh') {
-    zh.forEach(el => el.style.display = 'block');
-    en.forEach(el => el.style.display = 'none');
-  } else {
-    zh.forEach(el => el.style.display = 'none');
-    en.forEach(el => el.style.display = 'block');
-  }
-}
-
-setLang('zh');
-
-</script>
 
 </body>
 </html>
