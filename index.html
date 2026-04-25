@@ -1,137 +1,153 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<meta charset="UTF-8">
-<title>Jesus Film Opening</title>
+  <meta charset="UTF-8">
+  <title>主祷文</title>
 
-<style>
-body {
-  margin: 0;
-  overflow: hidden;
-  font-family: Arial;
-  background: black;
-  color: white;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      color: white;
 
-/* 背景 */
-.bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: url('jesus.jpg') center/cover no-repeat;
-  opacity: 0;
-  animation: fadeIn 3s forwards;
-}
+      /* 背景（你可以换成 bg.jpg） */
+      background: url('bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
 
-/* 黑色遮罩 */
-.overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(0,0,0,0.2), rgba(0,0,0,0.9));
-}
+    /* 黑色遮罩（高级效果） */
+    body::before {
+      content: "";
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
 
-/* 中间内容 */
-.container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
+    h1 {
+      margin-top: 80px;
+      font-size: 42px;
+    }
 
-/* 标题动画 */
-.title {
-  font-size: 48px;
-  opacity: 0;
-  letter-spacing: 5px;
-  animation: titleFade 4s forwards;
-}
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(45deg, #00c6ff, #0072ff);
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-.subtitle {
-  margin-top: 20px;
-  font-size: 20px;
-  color: #ccc;
-  opacity: 0;
-  animation: titleFade 4s forwards 2s;
-}
+    button:hover {
+      transform: scale(1.1);
+    }
 
-/* 按钮 */
-.btn {
-  margin-top: 40px;
-  padding: 15px 40px;
-  background: linear-gradient(45deg, #00c6ff, #007bff);
-  border-radius: 50px;
-  cursor: pointer;
-  opacity: 0;
-  animation: fadeIn 3s forwards 4s;
-  transition: 0.3s;
-}
+    .card {
+      margin: 40px auto;
+      width: 80%;
+      max-width: 700px;
+      padding: 25px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      display: none;
+    }
 
-.btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 30px rgba(0,123,255,0.8);
-}
-
-/* 动画 */
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
-
-@keyframes titleFade {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-</style>
+    p {
+      line-height: 1.8;
+      font-size: 18px;
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="bg"></div>
-<div class="overlay"></div>
+  <h1>🙏 主祷文</h1>
 
-<div class="container">
-  <div class="title">耶稣的故事 ✝️</div>
-  <div class="subtitle">Story of Jesus</div>
-  <div class="btn" onclick="enter()">进入 / Enter</div>
-<div class="btn" onclick="goPrayer()">🙏 主祷文 / Prayer</div>
+  <!-- 显示按钮 -->
+  <button onclick="togglePrayer()" id="btn">
+    点击显示主祷文
+  </button>
 
-<!-- 🎵 音乐 -->
-<audio id="music" loop autoplay muted>
-  <source src="bgm.mp3" type="audio/mpeg">
-</audio>
+  <!-- 音乐按钮 -->
+  <br>
+  <button onclick="toggleMusic()" id="musicBtn">
+    🎵 播放音乐
+  </button>
 
-<script>
-// 🎵 点击后音乐渐入
-let started = false;
+  <!-- 主祷文内容 -->
+  <div id="prayerBox" class="card">
+    <h2>主祷文</h2>
 
-function enter() {
-  const music = document.getElementById("music");
+    <p>
+      我们在天上的父，愿人都尊你的名为圣。<br><br>
+      愿你的国降临，愿你的旨意行在地上，如同行在天上。<br><br>
+      我们日用的饮食，今日赐给我们。<br><br>
+      免我们的债，如同我们免了人的债。<br><br>
+      不叫我们遇见试探，救我们脱离凶恶。<br><br>
+      因为国度、权柄、荣耀，全是你的，直到永远。阿们。
+    </p>
 
-  if (!started) {
-    music.muted = false;
-    music.volume = 0;
-    music.play();
+    <hr style="margin:20px 0;">
 
-    let vol = 0;
-    let fade = setInterval(() => {
-      if (vol < 1) {
-        vol += 0.02;
-        music.volume = vol;
+    <p>
+      Our Father in heaven,<br><br>
+      hallowed be your name,<br><br>
+      your kingdom come,<br><br>
+      your will be done,<br><br>
+      on earth as it is in heaven.<br><br>
+      Give us today our daily bread.<br><br>
+      And forgive us our debts,<br><br>
+      as we also have forgiven our debtors.<br><br>
+      And lead us not into temptation,<br><br>
+      but deliver us from the evil one.<br><br>
+      For yours is the kingdom and the power and the glory forever. Amen.
+    </p>
+  </div>
+
+  <!-- 音频 -->
+  <audio id="music" src="music.mp3" loop></audio>
+
+  <script>
+    function togglePrayer() {
+      const box = document.getElementById("prayerBox");
+      const btn = document.getElementById("btn");
+
+      if (box.style.display === "none" || box.style.display === "") {
+        box.style.display = "block";
+        btn.innerText = "隐藏主祷文";
       } else {
-        clearInterval(fade);
+        box.style.display = "none";
+        btn.innerText = "点击显示主祷文";
       }
-    }, 100);
+    }
 
-    started = true;
-  }
+    function toggleMusic() {
+      const music = document.getElementById("music");
+      const btn = document.getElementById("musicBtn");
 
-  // 🎬 跳转下一页（延迟更有电影感）
-  setTimeout(() => {
-    window.location.href = "story.html";
-  }, 1500);
-}
-</script>
+      if (music.paused) {
+        music.play();
+        btn.innerText = "🔇 关闭音乐";
+      } else {
+        music.pause();
+        btn.innerText = "🎵 播放音乐";
+      }
+    }
+
+    /* 第一次点击页面自动允许播放 */
+    document.body.addEventListener("click", () => {
+      const music = document.getElementById("music");
+      music.play().catch(()=>{});
+    }, { once: true });
+  </script>
 
 </body>
 </html>
