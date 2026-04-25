@@ -1,27 +1,33 @@
 <div class="cinema">
-  <h1>主祷文</h1>onclick
+  <h1>主祷文</h1>
+
   <p class="fade">
     我们在天上的父...<br>
     愿你的国降临...
   </p>
+
+  <button onclick="togglePrayer()">打开 / 关闭主祷文</button>
+
+  <div id="prayerBox" style="display:none; margin-top:20px;">
+    <h2>主祷文</h2>
+    <p>
+      我们在天上的父，愿人都尊你的名为圣。<br>
+      愿你的国降临。愿你的旨意行在地上，如同行在天上。<br>
+      我们日用的饮食，今日赐给我们。<br>
+      免我们的债，如同我们免了人的债。<br>
+      不叫我们遇见试探，救我们脱离凶恶。<br>
+      因为国度、权柄、荣耀，全是你的，直到永远。阿们。
+    </p>
+  </div>
 </div>
 
-<style>
-.cinema {
-  text-align: center;
-  color: white;
-  background: black;
-  padding: 100px;
-  font-size: 24px;
-}
-
-.fade {
-  animation: fadeIn 5s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-</style>
 <script>
+function togglePrayer() {
+  const box = document.getElementById("prayerBox");
+  if (box.style.display === "none") {
+    box.style.display = "block";
+  } else {
+    box.style.display = "none";
+  }
+}
+</script>
