@@ -1,6 +1,8 @@
 <h1>主祷文</h1>
 
-<button onclick="togglePrayer()">🙏 显示 / 隐藏祷文</button>
+<button onclick="togglePrayer()" id="btn">
+  🙏 显示主祷文
+</button>
 
 <div id="prayerBox" style="display:none; margin-top:20px; border:1px solid #ccc; padding:15px; border-radius:10px;">
   <h2>主祷文</h2>
@@ -17,11 +19,14 @@
 <script>
 function togglePrayer() {
   const box = document.getElementById("prayerBox");
+  const btn = document.getElementById("btn");
 
   if (box.style.display === "none") {
     box.style.display = "block";
+    btn.innerText = "🙏 隐藏主祷文";
   } else {
     box.style.display = "none";
+    btn.innerText = "🙏 显示主祷文";
   }
 }
 </script>
