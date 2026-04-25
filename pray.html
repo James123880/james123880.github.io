@@ -15,10 +15,10 @@
 </div>
 
 <script>
-function togglePrayer() {
-  const box = document.getElementById("prayerBox");
-  const btn = document.getElementById("btn");
-
+function goPrayer() {
+  window.location.href = "pray.html";
+}
+</script>
   if (box.style.display === "none") {
     box.style.display = "block";
     btn.innerText = "🙏 隐藏主祷文";
