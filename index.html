@@ -1,89 +1,66 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>主祷文</title>
+<meta charset="UTF-8">
+<title>The Lord's Prayer</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      color: white;
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+    background: url('jesus.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
 
-      /* 背景（你可以换成 bg.jpg） */
-      background: url('jesus.jpg') no-repeat center center fixed;
-background-size: cover;
-    }
+  h1 {
+    margin-top: 80px;
+    font-size: 40px;
+  }
 
-    /* 黑色遮罩（高级效果） */
-    body::before {
-      content: "";
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
+  button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+  }
 
-    h1 {
-      margin-top: 80px;
-      font-size: 42px;
-    }
+  button:hover {
+    transform: scale(1.1);
+  }
 
-    button {
-      margin-top: 20px;
-      padding: 12px 25px;
-      font-size: 18px;
-      border: none;
-      border-radius: 12px;
-      background: linear-gradient(45deg, #00c6ff, #0072ff);
-      color: white;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+  .card {
+    display: none;
+    margin: 40px auto;
+    width: 80%;
+    max-width: 700px;
+    padding: 25px;
+    border-radius: 20px;
+    background: rgba(0,0,0,0.5);
+  }
 
-    button:hover {
-      transform: scale(1.1);
-    }
-
-    .card {
-      margin: 40px auto;
-      width: 80%;
-      max-width: 700px;
-      padding: 25px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      display: none;
-    }
-
-    p {
-      line-height: 1.8;
-      font-size: 18px;
-    }
-  </style>
+  p {
+    line-height: 1.8;
+    font-size: 18px;
+  }
+</style>
 </head>
 
 <body>
 
-<h1>🙏 主祷文</h1>
+<h1>🙏 The Lord’s Prayer</h1>
 
-<img src="cross.png" class="main-img" onclick="togglePrayer()">
-    点击显示主祷文
-  </button>
+<button onclick="togglePrayer()" id="btn">
+  Show Prayer
+</button>
 
-  <!-- 音乐按钮 -->
-  <br>
-  <button onclick="toggleMusic()" id="musicBtn">
-    🎵 播放音乐
-  </button>
-
-  <!-- 主祷文内容 -->
-  <div id="prayerBox" class="card">
-   <div class="card">
+<div id="prayerBox" class="card">
   <h2>The Lord’s Prayer</h2>
 
   <p>
@@ -106,63 +83,21 @@ background-size: cover;
     Amen.
   </p>
 </div>
-      Our Father in heaven,<br><br>
-      hallowed be your name,<br><br>
-      your kingdom come,<br><br>
-      your will be done,<br><br>
-      on earth as it is in heaven.<br><br>
-      Give us today our daily bread.<br><br>
-      And forgive us our debts,<br><br>
-      as we also have forgiven our debtors.<br><br>
-      And lead us not into temptation,<br><br>
-      but deliver us from the evil one.<br><br>
-      For yours is the kingdom and the power and the glory forever. Amen.
-    </p>
-  </div>
 
-  <!-- 音频 -->
-  <audio id="music" src="music.mp3" loop></audio>
+<script>
+function togglePrayer() {
+  const box = document.getElementById("prayerBox");
+  const btn = document.getElementById("btn");
 
-  <script>
-    function togglePrayer() {
-      const box = document.getElementById("prayerBox");
-      const btn = document.getElementById("btn");
-
-      if (box.style.display === "none" || box.style.display === "") {
-        box.style.display = "block";
-        btn.innerText = "隐藏主祷文";
-      } else {
-        box.style.display = "none";
-        btn.innerText = "点击显示主祷文";
-      }
-    }
-
-    function toggleMusic() {
-      const music = document.getElementById("music");
-      const btn = document.getElementById("musicBtn");
-
-      if (music.paused) {
-        music.play();
-        btn.innerText = "🔇 关闭音乐";
-      } else {
-        music.pause();
-        btn.innerText = "🎵 播放音乐";
-      }
-    }
-
-    /* 第一次点击页面自动允许播放 */
-    document.body.addEventListener("click", () => {
-      const music = document.getElementById("music");
-      music.play().catch(()=>{});
-    }, { once: true });
-  </script>
+  if (box.style.display === "none" || box.style.display === "") {
+    box.style.display = "block";
+    btn.innerText = "Hide Prayer";
+  } else {
+    box.style.display = "none";
+    btn.innerText = "Show Prayer";
+  }
+}
+</script>
 
 </body>
 </html>
-<button onclick="goBack()" class="back-btn">⬅ 返回</button>
-
-<script>
-function goBack() {
-  window.history.back();
-}
-</script>
