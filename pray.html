@@ -1,173 +1,29 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-<meta charset="UTF-8">
-<a href="/" class="btn">← 返回首页 / Home</a>
+<div id="lord-prayer">
+  <h2>主祷文 The Lord's Prayer</h2>
+  <p>
+    我们在天上的父，<br>
+    愿人都尊你的名为圣。<br>
+    愿你的国降临。<br>
+    愿你的旨意行在地上，如同行在天上。<br>
+    我们日用的饮食，今日赐给我们。<br>
+    免我们的债，如同我们免了人的债。<br>
+    不叫我们遇见试探，救我们脱离凶恶。<br>
+    因为国度、权柄、荣耀，全是你的，直到永远。阿们。
+  </p>
+
+  <hr>
+
+  <p>
+    Our Father in heaven,<br>
+    hallowed be your name.<br>
+    Your kingdom come,<br>
+    your will be done,<br>
+    on earth as it is in heaven.<br>
+    Give us today our daily bread.<br>
+    And forgive us our debts,<br>
+    as we also have forgiven our debtors.<br>
+    And lead us not into temptation,<br>
+    but deliver us from the evil one.<br>
+    For yours is the kingdom and the power and the glory forever. Amen.
+  </p>
 </div>
-  margin: 0;
-  font-family: "Arial", sans-serif;
-  color: white;
-  background: url('jesus.jpg') center/cover no-repeat fixed;
-}
-
-/* 黑色遮罩 */
-.overlay {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-}
-
-/* 内容 */
-.container {
-  position: relative;
-  max-width: 800px;
-  margin: auto;
-  padding: 80px 20px;
-  text-align: center;
-}
-
-/* 标题 */
-h1 {
-  color: #ff4d6d;
-  margin-bottom: 30px;
-}
-
-/* 每段 */
-.block {
-  margin: 25px 0;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 1s ease;
-}
-
-.block.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* 中文 */
-.zh {
-  font-size: 20px;
-  margin-bottom: 8px;
-}
-
-/* 英文 */
-.en {
-  font-size: 16px;
-  color: #ccc;
-}
-
-/* 语言按钮 */
-.lang {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-}
-
-.lang button {
-  margin: 5px;
-  padding: 8px 15px;
-  border: none;
-  border-radius: 20px;
-  background: #007bff;
-  color: white;
-  cursor: pointer;
-}
-</style>
-</head>
-
-<body>
-
-<div class="overlay"></div>
-
-<div class="lang">
-  <button onclick="setLang('zh')">中文</button>
-  <button onclick="setLang('en')">English</button>
-</div>
-
-<div class="container">
-  <h1>主祷文 ✝️<br>The Lord's Prayer</h1>
-
-  <div class="block">
-    <div class="zh">我们在天上的父，愿人都尊你的名为圣。</div>
-    <div class="en">Our Father in heaven, hallowed be your name.</div>
-  </div>
-
-  <div class="block">
-    <div class="zh">愿你的国降临，愿你的旨意行在地上，如同行在天上。</div>
-    <div class="en">Your kingdom come, your will be done, on earth as it is in heaven.</div>
-  </div>
-
-  <div class="block">
-    <div class="zh">我们日用的饮食，今日赐给我们。</div>
-    <div class="en">Give us today our daily bread.</div>
-  </div>
-
-  <div class="block">
-    <div class="zh">免我们的债，如同我们免了人的债。</div>
-    <div class="en">Forgive us our debts, as we also have forgiven our debtors.</div>
-  </div>
-
-  <div class="block">
-    <div class="zh">不叫我们遇见试探，救我们脱离凶恶。</div>
-    <div class="en">And lead us not into temptation, but deliver us from the evil one.</div>
-  </div>
-
-  <div class="block">
-    <div class="zh">因为国度、权柄、荣耀，全是你的，直到永远。阿们。</div>
-    <div class="en">For yours is the kingdom and the power and the glory forever. Amen.</div>
-  </div>
-
-</div>
-
-<script>
-// 滚动动画
-const blocks = document.querySelectorAll('.block');
-
-window.addEventListener('scroll', () => {
-  blocks.forEach(block => {
-    const top = block.getBoundingClientRect().top;
-    if (top < window.innerHeight - 50) {
-      block.classList.add('show');
-    }
-  });
-});
-
-// 语言切换
-function setLang(lang) {
-  document.querySelectorAll('.zh').forEach(el => {
-    el.style.display = (lang === 'zh') ? 'block' : 'none';
-  });
-
-  document.querySelectorAll('.en').forEach(el => {
-    el.style.display = (lang === 'en') ? 'block' : 'none';
-  });
-}
-
-// 默认中文 + 触发动画
-setLang('zh');
-window.dispatchEvent(new Event('scroll'));
-</script>
-<!-- 返回首页按钮 -->
-<div style="position: fixed; top: 20px; left: 20px; z-index: 999;">
- <button onclick="window.location.href='/'" class="back-btn">
-← Home
-</button>
-
-<style>
-.back-btn {
-  padding: 10px 18px;
-  border-radius: 25px;
-  border: none;
-  background: linear-gradient(45deg, #00c6ff, #007bff);
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.back-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(0,123,255,0.8);
-}
-</style>
