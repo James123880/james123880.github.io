@@ -90,23 +90,19 @@
   <audio id="music" src="prayer.mp3" loop></audio>
 
   <script>
-    function togglePrayer() {
-      const box = document.getElementById("prayerBox");
-      const btn = document.getElementById("btn");
-      const music = document.getElementById("music");
+function togglePrayer() {
+  const box = document.getElementById("prayerBox");
+  const btn = document.getElementById("btn");
 
-      if (box.style.display === "none" || box.style.display === "") {
-        box.style.display = "block";
-        btn.innerText = "隐藏主祷文";
-
-        // 播放音乐（第一次点击才允许）
-        music.play().catch(()=>{});
-      } else {
-        box.style.display = "none";
-        btn.innerText = "点击显示主祷文";
-      }
-    }
-  </script>
+  if (box.style.display === "" || box.style.display === "none") {
+    box.style.display = "block";
+    btn.innerText = "隐藏主祷文";
+  } else {
+    box.style.display = "none";
+    btn.innerText = "点击显示主祷文";
+  }
+}
+</script>
 
 </body>
 </html>
