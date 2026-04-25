@@ -8,17 +8,9 @@
 <div class="btn" onclick="toggleMusic()">🎵 音乐开关</div>
 
 <script>
-let playing = false;
-
-function toggleMusic() {
-  const music = document.getElementById("bgm");
-
-  if (!playing) {
-    music.play();
-    playing = true;
-  } else {
-    music.pause();
-    playing = false;
-  }
-}
+document.body.addEventListener('click', () => {
+  const music = document.getElementById('music');
+  music.muted = false;
+  music.play();
+});
 </script>
