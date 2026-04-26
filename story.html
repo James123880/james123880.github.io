@@ -1,23 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Birth of Jesus</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  text-align: center;
+  background: url("jesus.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* 黑色遮罩，让文字更清楚 */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* 内容卡片 */
+.container {
+  margin-top: 100px;
+  padding: 30px;
+  background: rgba(0,0,0,0.5);
+  border-radius: 15px;
+  width: 80%;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 发光标题 */
+.glow {
+  font-size: 40px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 
+    0 0 5px #fff,
+    0 0 10px #ffd700,
+    0 0 20px #ffd700,
+    0 0 40px #ffd700;
+}
+
+/* 段落 */
+p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* 按钮 */
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background: #00aaff;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0088cc;
+}
+</style>
+</head>
+
 <body>
 
 <div class="container">
-  <h1 class="glow">Matthew Chapter 1</h1>
+  <div class="glow">The Birth of Jesus</div>
 
-  <!-- ⭐ 从这里开始粘贴你的中英对照 -->
+  <p>
+    In those days, Caesar Augustus issued a decree that a census should be taken of the entire Roman world.
+  </p>
 
-  <div class="row">
-    <div class="en">This is the genealogy of Jesus the Messiah</div>
-    <div class="cn">亚伯拉罕的后裔，大卫的子孙，耶稣基督的家谱</div>
-  </div>
+  <p>
+    Joseph also went up from the town of Nazareth in Galilee to Judea, to Bethlehem the town of David.
+  </p>
 
-  <div class="row">
-    <div class="en">Abraham was the father of Isaac</div>
-    <div class="cn">亚伯拉罕生以撒</div>
-  </div>
+  <p>
+    He went there to register with Mary, who was pledged to be married to him and was expecting a child.
+  </p>
 
-  <!-- ⭐ 继续复制 row 就行 -->
+  <p>
+    While they were there, the time came for the baby to be born.
+  </p>
 
-  <button onclick="goHome()">Back</button>
-</div>
-
-</body>
+  <p>
+   
