@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Matthew 1 (CN & EN)</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  text-align: center;
+  background: url("jesus.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+/* 遮罩 */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* 容器 */
+.container {
+  margin: 40px auto;
+  padding: 20px;
+  max-width: 1000px;
+  background: rgba(0,0,0,0.5);
+  border-radius: 15px;
+}
+
+/* 标题 */
+.glow {
+  font-size: 32px;
+  font-weight: bold;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #00aaff,
+    0 0 20px #00aaff;
+}
+
+/* 双列布局 */
+.row {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* 每一列 */
+.column {
+  flex: 1;
+  text-align: left;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* 标题小字 */
+.sub {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* 按钮 */
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #00aaff;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0088cc;
+}
+
+/* 手机适配 */
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1 class="glow">Matthew Chapter 1</h1>
+
+  <div class="row">
+
+    <!-- 英文 -->
+    <div class="column">
+      <div class="sub">English</div>
+      <p>
+        This is the genealogy of Jesus the Messiah, the son of David, the son of Abraham.<br><br>
+
+        Abraham was the father of Isaac,<br>
+        Isaac the father of Jacob,<br>
+        Jacob the father of Judah and his brothers.<br><br>
+
+        Jacob the father of Joseph,<br>
+        the husband of Mary,<br>
+        and Mary was the mother of Jesus who is called the Messiah.<br><br>
+
+        This is how the birth of Jesus the Messiah came about:<br><br>
+
+        His mother Mary was pledged to be married to Joseph,<br>
+        but before they came together,<br>
+        she was found to be pregnant through the Holy Spirit.<br><br>
+
+        “She will give birth to a son,<br>
+        and you are to give him the name Jesus,<br>
+        because he will save his people from their sins.”
+      </p>
+    </div>
+
+    <!-- 中文 -->
+    <div class="column">
+      <div class="sub">中文</div>
+      <p>
+        亚伯拉罕的后裔，大卫的子孙，耶稣基督的家谱。<br><br>
+
+        亚伯拉罕生以撒，<br>
+        以撒生雅各，<br>
+        雅各生犹大和他的弟兄。<br><br>
+
+        雅各生约瑟，<br>
+        就是马利亚的丈夫，<br>
+        那称为基督的耶稣是从马利亚生的。<br><br>
+
+        耶稣基督降生的事记在下面：<br><br>
+
+        他母亲马利亚已经许配了约瑟，<br>
+        还没有迎娶，<br>
+        就从圣灵怀了孕。<br><br>
+
+        “她将要生一个儿子，<br>
+        你要给他起名叫耶稣，<br>
+        因他要将自己的百姓从罪恶里救出来。”
+      </p>
+    </div>
+
+  </div>
+
+  <button onclick="goHome()">Back</button>
+</div>
+
+<script>
+function goHome() {
+  window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
