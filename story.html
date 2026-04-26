@@ -2,66 +2,56 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Birth of Jesus</title>
+<title>Matthew Chapter 1</title>
 
 <style>
 body {
   margin: 0;
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   color: white;
   text-align: center;
-  background: linear-gradient(to bottom, #000000, #1a1a2e);
-  overflow: hidden;
+
+  background: url("jesus.jpg") no-repeat center center;
+  background-size: cover;
 }
 
-/* 星空动画 */
-.stars {
+/* 黑色遮罩 */
+body::before {
+  content: "";
   position: fixed;
   width: 100%;
   height: 100%;
-  background: url("https://i.imgur.com/9Qx6Z5L.png");
-  animation: moveStars 60s linear infinite;
-}
-
-@keyframes moveStars {
-  from { background-position: 0 0; }
-  to { background-position: 1000px 1000px; }
-}
-
-/* 内容卡片 */
-.card {
-  position: relative;
-  top: 15%;
-  margin: auto;
-  width: 70%;
-  padding: 30px;
   background: rgba(0,0,0,0.6);
-  border-radius: 20px;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* 卡片 */
+.container {
+  margin: 60px auto;
+  background: rgba(0,0,0,0.5);
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 800px;
 }
 
 /* 发光标题 */
-.title {
-  font-size: 40px;
-  font-weight: 800;
-  text-shadow: 
-    0 0 10px #fff,
-    0 0 20px gold,
-    0 0 40px gold;
+.glow {
+  font-size: 36px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #00aaff,
+    0 0 20px #00aaff,
+    0 0 40px #00aaff;
 }
 
-/* 文字动画 */
-.fade {
-  opacity: 0;
-  animation: fadeIn 3s forwards;
-}
-
-.fade:nth-child(2) { animation-delay: 1s; }
-.fade:nth-child(3) { animation-delay: 3s; }
-.fade:nth-child(4) { animation-delay: 5s; }
-.fade:nth-child(5) { animation-delay: 7s; }
-
-@keyframes fadeIn {
-  to { opacity: 1; }
+/* 经文 */
+p {
+  font-size: 18px;
+  line-height: 1.8;
 }
 
 /* 按钮 */
@@ -75,21 +65,61 @@ button {
   font-size: 16px;
   cursor: pointer;
 }
+
+button:hover {
+  background: #0088cc;
+}
 </style>
 </head>
 
 <body>
 
-<div class="stars"></div>
+<div class="container">
+  <h1 class="glow">Matthew Chapter 1</h1>
 
-<div class="card">
-  <h1 class="title">The Birth of Jesus</h1>
+  <p>
+    This is the genealogy of Jesus the Messiah, the son of David, the son of Abraham.<br><br>
 
-  <p class="fade">In those days, Caesar Augustus issued a decree...</p>
-  <p class="fade">Joseph went up from Nazareth to Bethlehem...</p>
-  <p class="fade">And Mary gave birth to her firstborn son.</p>
-  <p class="fade">She wrapped him in cloths and placed him in a manger.</p>
-  <p class="fade">And the angels said: "Glory to God in the highest."</p>
+    Abraham was the father of Isaac,<br>
+    Isaac the father of Jacob,<br>
+    Jacob the father of Judah and his brothers.<br><br>
+
+    David was the father of Solomon,<br>
+    whose mother had been Uriah’s wife.<br><br>
+
+    And Jacob the father of Joseph,<br>
+    the husband of Mary,<br>
+    and Mary was the mother of Jesus who is called the Messiah.<br><br>
+
+    This is how the birth of Jesus the Messiah came about:<br><br>
+
+    His mother Mary was pledged to be married to Joseph,<br>
+    but before they came together,<br>
+    she was found to be pregnant through the Holy Spirit.<br><br>
+
+    Because Joseph her husband was faithful to the law,<br>
+    and yet did not want to expose her to public disgrace,<br>
+    he had in mind to divorce her quietly.<br><br>
+
+    But after he had considered this,<br>
+    an angel of the Lord appeared to him in a dream and said:<br><br>
+
+    “Joseph son of David, do not be afraid to take Mary home as your wife,<br>
+    because what is conceived in her is from the Holy Spirit.<br><br>
+
+    She will give birth to a son,<br>
+    and you are to give him the name Jesus,<br>
+    because he will save his people from their sins.”<br><br>
+
+    All this took place to fulfill what the Lord had said through the prophet:<br><br>
+
+    “The virgin will conceive and give birth to a son,<br>
+    and they will call him Immanuel” (which means “God with us”).<br><br>
+
+    When Joseph woke up,<br>
+    he did what the angel of the Lord had commanded him<br>
+    and took Mary home as his wife.
+  </p>
 
   <button onclick="goHome()">Back</button>
 </div>
