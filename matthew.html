@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Matthew 1 (CN & EN)</title>
+<title>Matthew Chapter 1</title>
 
 <style>
 body {
@@ -14,7 +14,7 @@ body {
   background-size: cover;
 }
 
-/* 遮罩 */
+/* overlay */
 body::before {
   content: "";
   position: fixed;
@@ -26,66 +26,36 @@ body::before {
   z-index: -1;
 }
 
-/* 容器 */
+/* container */
 .container {
-  margin: 40px auto;
-  padding: 20px;
-  max-width: 1000px;
+  margin: 60px auto;
+  max-width: 800px;
   background: rgba(0,0,0,0.5);
+  padding: 30px;
   border-radius: 15px;
 }
 
-/* 标题 */
-.glow {
-  font-size: 32px;
-  font-weight: bold;
-  text-shadow:
-    0 0 5px #fff,
-    0 0 10px #00aaff,
-    0 0 20px #00aaff;
+/* title */
+h1 {
+  font-size: 34px;
+  text-shadow: 0 0 10px #00aaff;
 }
 
-/* 双列布局 */
-.row {
-  display: flex;
-  gap: 20px;
-  margin-top: 20px;
+/* text */
+p {
+  font-size: 18px;
+  line-height: 1.8;
 }
 
-/* 每一列 */
-.column {
-  flex: 1;
-  text-align: left;
-  font-size: 16px;
-  line-height: 1.7;
-}
-
-/* 标题小字 */
-.sub {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-/* 按钮 */
+/* button */
 button {
   margin-top: 20px;
   padding: 10px 20px;
-  border: none;
   border-radius: 10px;
+  border: none;
   background: #00aaff;
   color: white;
   cursor: pointer;
-}
-
-button:hover {
-  background: #0088cc;
-}
-
-/* 手机适配 */
-@media (max-width: 768px) {
-  .row {
-    flex-direction: column;
-  }
 }
 </style>
 </head>
@@ -93,63 +63,55 @@ button:hover {
 <body>
 
 <div class="container">
-  <h1 class="glow">Matthew Chapter 1</h1>
+  <h1>Matthew Chapter 1</h1>
 
-  <div class="row">
+  <p>
+    This is the genealogy of Jesus the Messiah, the son of David, the son of Abraham.<br><br>
 
-    <!-- 英文 -->
-    <div class="column">
-      <div class="sub">English</div>
-      <p>
-        This is the genealogy of Jesus the Messiah, the son of David, the son of Abraham.<br><br>
+    Abraham was the father of Isaac,<br>
+    Isaac the father of Jacob,<br>
+    Jacob the father of Judah and his brothers.<br><br>
 
-        Abraham was the father of Isaac,<br>
-        Isaac the father of Jacob,<br>
-        Jacob the father of Judah and his brothers.<br><br>
+    Judah the father of Perez and Zerah,<br>
+    whose mother was Tamar,<br>
+    Perez the father of Hezron,<br>
+    Hezron the father of Ram.<br><br>
 
-        Jacob the father of Joseph,<br>
-        the husband of Mary,<br>
-        and Mary was the mother of Jesus who is called the Messiah.<br><br>
+    Ram the father of Amminadab,<br>
+    Amminadab the father of Nahshon,<br>
+    Nahshon the father of Salmon.<br><br>
 
-        This is how the birth of Jesus the Messiah came about:<br><br>
+    Salmon the father of Boaz,<br>
+    whose mother was Rahab,<br>
+    Boaz the father of Obed,<br>
+    whose mother was Ruth,<br>
+    Obed the father of Jesse,<br>
+    and Jesse the father of King David.<br><br>
 
-        His mother Mary was pledged to be married to Joseph,<br>
-        but before they came together,<br>
-        she was found to be pregnant through the Holy Spirit.<br><br>
+    This is how the birth of Jesus the Messiah came about:<br><br>
 
-        “She will give birth to a son,<br>
-        and you are to give him the name Jesus,<br>
-        because he will save his people from their sins.”
-      </p>
-    </div>
+    His mother Mary was pledged to be married to Joseph,<br>
+    but before they came together,<br>
+    she was found to be pregnant through the Holy Spirit.<br><br>
 
-    <!-- 中文 -->
-    <div class="column">
-      <div class="sub">中文</div>
-      <p>
-        亚伯拉罕的后裔，大卫的子孙，耶稣基督的家谱。<br><br>
+    But after he had considered this,<br>
+    an angel of the Lord appeared to him in a dream and said:<br><br>
 
-        亚伯拉罕生以撒，<br>
-        以撒生雅各，<br>
-        雅各生犹大和他的弟兄。<br><br>
+    "Joseph son of David, do not be afraid to take Mary home as your wife,<br>
+    because what is conceived in her is from the Holy Spirit.<br><br>
 
-        雅各生约瑟，<br>
-        就是马利亚的丈夫，<br>
-        那称为基督的耶稣是从马利亚生的。<br><br>
+    She will give birth to a son,<br>
+    and you are to give him the name Jesus,<br>
+    because he will save his people from their sins."<br><br>
 
-        耶稣基督降生的事记在下面：<br><br>
+    "The virgin will conceive and give birth to a son,<br>
+    and they will call him Immanuel"<br>
+    (which means "God with us").<br><br>
 
-        他母亲马利亚已经许配了约瑟，<br>
-        还没有迎娶，<br>
-        就从圣灵怀了孕。<br><br>
-
-        “她将要生一个儿子，<br>
-        你要给他起名叫耶稣，<br>
-        因他要将自己的百姓从罪恶里救出来。”
-      </p>
-    </div>
-
-  </div>
+    When Joseph woke up,<br>
+    he did what the angel of the Lord had commanded him<br>
+    and took Mary home as his wife.
+  </p>
 
   <button onclick="goHome()">Back</button>
 </div>
