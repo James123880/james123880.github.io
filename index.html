@@ -1,135 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <head>
-  <style>
-    .card {
-      padding: 25px;
-      border-radius: 20px;
-      background: rgba(0,0,0,0.5);
-    }
-
-    /* 👇就在这里加 */
-    .glow {
-      color: #ffffff;
-      text-shadow: 
-        0 0 5px #fff,
-        0 0 10px #00aaff,
-        0 0 20px #00aaff,
-        0 0 40px #00aaff;
-    }
-
-  </style>
-</head> 
 <meta charset="UTF-8">
-<title>The Lord's Prayer</title>
+<title>My Bible Website</title>
 
 <style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    color: white;
-    background: url('jesus.jpg') no-repeat center center fixed;
-    background-size: cover;
-  }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  text-align: center;
+  background: url("jesus.jpg") no-repeat center center;
+  background-size: cover;
+}
 
-  h1 {
-    margin-top: 80px;
-    font-size: 40px;
-  }
+/* overlay */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
 
-  button {
-    margin-top: 20px;
-    padding: 12px 25px;
-    font-size: 18px;
-    border: none;
-    border-radius: 12px;
-    background: linear-gradient(45deg, #00c6ff, #0072ff);
-    color: white;
-    cursor: pointer;
-    transition: 0.3s;
-  }
+/* container */
+.container {
+  margin-top: 120px;
+}
 
-  button:hover {
-    transform: scale(1.1);
-  }
+/* title glow */
+h1 {
+  font-size: 40px;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #00aaff,
+    0 0 20px #00aaff;
+}
 
-  .card {
-    display: none;
-    margin: 40px auto;
-    width: 80%;
-    max-width: 700px;
-    padding: 25px;
-    border-radius: 20px;
-    background: rgba(0,0,0,0.5);
-  }
+/* buttons */
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  background: #00aaff;
+  color: white;
+  cursor: pointer;
+  width: 220px;
+}
 
-  p {
-    line-height: 1.8;
-    font-size: 18px;
-  }
+button:hover {
+  background: #0088cc;
+}
 </style>
 </head>
 
 <body>
 
-<h1>🙏 主祷文</h1>
+<div class="container">
+  <h1>My Bible Website</h1>
 
-<button onclick="togglePrayer()">点击显示主祷文</button>
-
-<!-- 👇 加在这里 -->
-<button onclick="goStory()">📖 Matthew 1</button>
-
-<!-- 你的祷文内容 -->
-<div id="prayerBox">
-  ...
+  <button onclick="goPrayer()">The Lord’s Prayer</button>
+  <button onclick="goMatthew()">Matthew Chapter 1</button>
 </div>
 
-<!-- 👇 放这里（底部） -->
 <script>
-function goStory() {
-  window.location.href = "story.html";
+function goPrayer() {
+  window.location.href = "prayer.html";
 }
-</script>
 
-</body>
-  <p>
-    Our Father in heaven,<br><br>
-    hallowed be your name.<br><br>
-
-    Your kingdom come,<br>
-    your will be done,<br>
-    on earth as it is in heaven.<br><br>
-
-    Give us today our daily bread.<br><br>
-
-    And forgive us our debts,<br>
-    as we also have forgiven our debtors.<br><br>
-
-    And lead us not into temptation,<br>
-    but deliver us from the evil one.<br><br>
-
-    For yours is the kingdom and the power and the glory forever.<br>
-    Amen.
-  </p>
-</div>
-
-<script>
-function togglePrayer() {
-  const box = document.getElementById("prayerBox");
-  const btn = document.getElementById("btn");
-
-  if (box.style.display === "none" || box.style.display === "") {
-    box.style.display = "block";
-    btn.innerText = "Hide Prayer";
-  } else {
-    box.style.display = "none";
-    btn.innerText = "Show Prayer";
-  }
+function goMatthew() {
+  window.location.href = "matthew.html";
 }
 </script>
 
 </body>
 </html>
-add giow effect
