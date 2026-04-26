@@ -2,98 +2,152 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>The Birth of Jesus</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Story of Jesus</title>
 
 <style>
-body {
+html, body {
   margin: 0;
+  padding: 0;
   font-family: Arial, sans-serif;
+  background: url("https://images.unsplash.com/photo-1504052434569-70ad5836ab65")
+              no-repeat center center/cover;
   color: white;
-  text-align: center;
-  background: url("jesus.jpg") no-repeat center center fixed;
-  background-size: cover;
 }
 
-/* 黑色遮罩，让文字更清楚 */
-body::before {
-  content: "";
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-  top: 0;
-  left: 0;
-  z-index: -1;
+/* 黑色滤镜 */
+.overlay {
+  background: rgba(0,0,0,0.7);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* 内容卡片 */
+/* 内容 */
 .container {
-  margin-top: 100px;
+  max-width: 800px;
   padding: 30px;
-  background: rgba(0,0,0,0.5);
-  border-radius: 15px;
-  width: 80%;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+  text-align: center;
 }
 
-/* 发光标题 */
-.glow {
+/* 标题 */
+h1 {
   font-size: 40px;
-  font-weight: bold;
-  color: #fff;
-  text-shadow: 
-    0 0 5px #fff,
-    0 0 10px #ffd700,
-    0 0 20px #ffd700,
-    0 0 40px #ffd700;
+  text-shadow: 0 0 15px rgba(255,255,255,0.7);
 }
 
 /* 段落 */
 p {
   font-size: 18px;
-  line-height: 1.6;
+  line-height: 1.8;
 }
 
 /* 按钮 */
-button {
+.btn {
   margin-top: 20px;
   padding: 10px 20px;
-  font-size: 16px;
+  background: #0072ff;
   border: none;
   border-radius: 10px;
-  background: #00aaff;
   color: white;
   cursor: pointer;
 }
 
-button:hover {
-  background: #0088cc;
+/* 评论区 */
+.comment-box {
+  margin-top: 30px;
+}
+
+input {
+  padding: 10px;
+  width: 70%;
+  border-radius: 8px;
+  border: none;
+}
+
+.comment {
+  margin-top: 10px;
+  background: rgba(255,255,255,0.1);
+  padding: 10px;
+  border-radius: 8px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-  <div class="glow">The Birth of Jesus</div>
+<div class="overlay">
+  <div class="container">
 
-  <p>
-    In those days, Caesar Augustus issued a decree that a census should be taken of the entire Roman world.
-  </p>
+    <h1>The Story of Jesus</h1>
 
-  <p>
-    Joseph also went up from the town of Nazareth in Galilee to Judea, to Bethlehem the town of David.
-  </p>
+    <p>
+      Jesus Christ was born in Bethlehem. His birth brought hope to the world.
+    </p>
 
-  <p>
-    He went there to register with Mary, who was pledged to be married to him and was expecting a child.
-  </p>
+    <p>
+      He taught people about love, forgiveness, and the Kingdom of God.
+      He healed the sick and showed compassion to all.
+    </p>
 
-  <p>
-    While they were there, the time came for the baby to be born.
-  </p>
+    <p>
+      Jesus was crucified on the cross, but on the third day, He rose again.
+      His resurrection gives hope of eternal life.
+    </p>
 
-  <p>
-   
+    <!-- 👍 点赞 -->
+    <button class="btn" onclick="like()">👍 Like (<span id="likeCount">0</span>)</button>
+
+    <!-- 💬 评论 -->
+    <div class="comment-box">
+      <h3>Comments</h3>
+      <input type="text" id="commentInput" placeholder="Write a comment...">
+      <button class="btn" onclick="addComment()">Post</button>
+
+      <div id="comments"></div>
+    </div>
+
+    <br>
+    <a href="index.html" style="color:cyan;">⬅ Back Home</a>
+
+  </div>
+</div>
+
+<script>
+// 👍 点赞功能（本地保存）
+let likes = localStorage.getItem("likes") || 0;
+document.getElementById("likeCount").innerText = likes;
+
+function like() {
+  likes++;
+  localStorage.setItem("likes", likes);
+  document.getElementById("likeCount").innerText = likes;
+}
+
+// 💬 评论功能（本地保存）
+let comments = JSON.parse(localStorage.getItem("comments")) || [];
+
+function displayComments() {
+  const box = document.getElementById("comments");
+  box.innerHTML = "";
+  comments.forEach(c => {
+    box.innerHTML += `<div class="comment">${c}</div>`;
+  });
+}
+
+function addComment() {
+  const input = document.getElementById("commentInput");
+  if (input.value.trim() === "") return;
+
+  comments.push(input.value);
+  localStorage.setItem("comments", JSON.stringify(comments));
+  input.value = "";
+  displayComments();
+}
+
+displayComments();
+</script>
+
+</body>
+</html>
