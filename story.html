@@ -1,232 +1,168 @@
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
-
-<script>
-  <script>
-function searchText() {
-  const keyword = document.getElementById("searchInput").value.toLowerCase();
-  const texts = document.querySelectorAll(".text");
-
-  texts.forEach(p => {
-    if (p.innerText.toLowerCase().includes(keyword)) {
-      p.style.display = "block";
-    } else {
-      p.style.display = "none";
-    }
-  });
-}
-</script>
-// 🔥 替换成你的 firebaseConfig
-const firebaseConfig = {
-  apiKey: "你的key",
-  authDomain: "你的domain",
-  projectId: "你的projectId"
-};
-
-// 初始化
-const app = firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
-
-// 发表评论
-function addComment() {
-  const input = document.getElementById("commentInput");
-  const text = input.value.trim();
-  if (!text) return;
-
-  db.collection("comments").add({
-    text: text,
-    time: new Date()
-  });
-
-  input.value = "";
-}
-
-// 实时显示评论
-db.collection("comments")
-  .orderBy("time")
-  .onSnapshot(snapshot => {
-    const box = document.getElementById("comments");
-    box.innerHTML = "";
-
-    snapshot.forEach(doc => {
-      const data = doc.data();
-      box.innerHTML += `<div class="comment">${data.text}</div>`;
-    });
-  });
-</script>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<title>12 Apostles</title>
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>耶稣的十二门徒 · 12 Apostles</title>
 <style>
-body {
-  font-family: Arial, sans-serif;
-  background: #111;
-  color: white;
-  text-align: center;
-}
-
-.container {
-  max-width: 800px;
-  margin: auto;
-}
-
-.card {
-  background: #1e1e1e;
-  margin: 10px;
-  padding: 15px;
-  border-radius: 10px;
-}
-
-button {
-  background: #4CAF50;
-  border: none;
-  padding: 10px;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #45a049;
-}
-
-.content {
-  display: none;
-  margin-top: 10px;
-  text-align: left;
-}
+  :root {
+    --bg: #060b18;
+    --text: #eef5ff;
+    --muted: #b6d4ef;
+    --card: rgba(13, 25, 55, 0.72);
+    --line: rgba(129, 202, 255, 0.32);
+    --accent: #9fe2ff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: var(--text);
+    background:
+      linear-gradient(155deg, rgba(3,7,18,0.95), rgba(6,18,45,0.92)),
+      url("jesus.jpg") center/cover fixed no-repeat;
+  }
+  .wrap {
+    width: min(980px, 92vw);
+    margin: 22px auto 50px;
+  }
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 8px;
+  }
+  .chip, .back {
+    border: 1px solid var(--line);
+    background: rgba(8,16,36,0.72);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 9px 13px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .chip.active { box-shadow: 0 0 0 2px rgba(126,214,255,0.35); }
+  h1 {
+    margin: 6px 0 8px;
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 2.7rem);
+    text-shadow: 0 0 16px rgba(121, 212, 255, 0.45);
+  }
+  .subtitle {
+    text-align: center;
+    color: var(--muted);
+    margin: 0 0 20px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+  }
+  .card {
+    border: 1px solid var(--line);
+    border-radius: 15px;
+    background: var(--card);
+    padding: 14px;
+  }
+  .card h3 { margin: 0 0 8px; font-size: 1.05rem; }
+  .card p {
+    margin: 0;
+    line-height: 1.7;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
 </style>
 </head>
-
 <body>
-
-<h1>12 Apostles of Jesus</h1>
-
-<div class="container">
-
-  <!-- Peter -->
-  <div class="card">
-    <h3>Peter</h3>
-    <button onclick="toggle('peter')">Read More</button>
-    <div id="peter" class="content">
-      Leader of the apostles. A fisherman called by Jesus. Denied Jesus three times but later became a bold preacher. Traditionally believed to have been crucified upside down.
+  <main class="wrap">
+    <div class="top">
+      <a class="back" href="index.html" id="backBtn">← 返回首页</a>
+      <div>
+        <button class="chip active" id="langZh">中文</button>
+        <button class="chip" id="langEn">EN</button>
+      </div>
     </div>
-  </div>
 
-  <!-- John -->
-  <div class="card">
-    <h3>John</h3>
-    <button onclick="toggle('john')">Read More</button>
-    <div id="john" class="content">
-      Known as the “beloved disciple.” Wrote the Gospel of John, Revelation, and letters. Emphasized love and truth.
-    </div>
-  </div>
+    <h1 id="title">耶稣的十二门徒</h1>
+    <p class="subtitle" id="subtitle">他们背景不同，却一同回应主的呼召，见证福音。</p>
 
-  <!-- James -->
-  <div class="card">
-    <h3>James (son of Zebedee)</h3>
-    <button onclick="toggle('james1')">Read More</button>
-    <div id="james1" class="content">
-      Brother of John. One of Jesus’ closest disciples. First apostle to be martyred (Acts 12).
-    </div>
-  </div>
-
-  <!-- Andrew -->
-  <div class="card">
-    <h3>Andrew</h3>
-    <button onclick="toggle('andrew')">Read More</button>
-    <div id="andrew" class="content">
-      Peter’s brother. Brought people to Jesus, including Peter. Traditionally crucified on an X-shaped cross.
-    </div>
-  </div>
-
-  <!-- Philip -->
-  <div class="card">
-    <h3>Philip</h3>
-    <button onclick="toggle('philip')">Read More</button>
-    <div id="philip" class="content">
-      Called by Jesus early. Helped bring Nathanael to Christ. Known for asking practical questions.
-    </div>
-  </div>
-
-  <!-- Bartholomew -->
-  <div class="card">
-    <h3>Bartholomew (Nathanael)</h3>
-    <button onclick="toggle('bartholomew')">Read More</button>
-    <div id="bartholomew" class="content">
-      Honest and faithful follower. Traditionally believed to have preached in Asia and been martyred.
-    </div>
-  </div>
-
-  <!-- Matthew -->
-  <div class="card">
-    <h3>Matthew</h3>
-    <button onclick="toggle('matthew')">Read More</button>
-    <div id="matthew" class="content">
-      Former tax collector. Author of the Gospel of Matthew. Left everything to follow Jesus.
-    </div>
-  </div>
-
-  <!-- Thomas -->
-  <div class="card">
-    <h3>Thomas</h3>
-    <button onclick="toggle('thomas')">Read More</button>
-    <div id="thomas" class="content">
-      Known as “Doubting Thomas.” Later showed great faith. Tradition says he preached in India.
-    </div>
-  </div>
-
-  <!-- James the Less -->
-  <div class="card">
-    <h3>James (son of Alphaeus)</h3>
-    <button onclick="toggle('james2')">Read More</button>
-    <div id="james2" class="content">
-      Called “James the Less.” Less is known about him, but he faithfully followed Jesus.
-    </div>
-  </div>
-
-  <!-- Thaddaeus -->
-  <div class="card">
-    <h3>Thaddaeus (Jude)</h3>
-    <button onclick="toggle('thaddaeus')">Read More</button>
-    <div id="thaddaeus" class="content">
-      Also called Jude. Asked Jesus important questions. Associated with the Epistle of Jude.
-    </div>
-  </div>
-
-  <!-- Simon -->
-  <div class="card">
-    <h3>Simon the Zealot</h3>
-    <button onclick="toggle('simon')">Read More</button>
-    <div id="simon" class="content">
-      Possibly part of a revolutionary group before following Jesus. Later became a missionary.
-    </div>
-  </div>
-
-  <!-- Judas -->
-  <div class="card">
-    <h3>Judas Iscariot</h3>
-    <button onclick="toggle('judas')">Read More</button>
-    <div id="judas" class="content">
-      Betrayed Jesus for thirty pieces of silver. Later died tragically.
-    </div>
-  </div>
-
-</div>
+    <section class="grid" id="apostlesGrid"></section>
+  </main>
 
 <script>
-function toggle(id) {
-  var x = document.getElementById(id);
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-}
-</script>
+  const data = {
+    zh: {
+      title: '耶稣的十二门徒',
+      subtitle: '他们背景不同，却一同回应主的呼召，见证福音。',
+      back: '← 返回首页',
+      apostles: [
+        ['彼得', '渔夫出身，门徒中的领袖之一。曾三次不认主，后被主恢复，勇敢传道。'],
+        ['安得烈', '彼得的兄弟，常把人带到耶稣面前，是安静却忠心的引导者。'],
+        ['雅各（西庇太之子）', '约翰的兄弟，常与彼得、约翰同在主身旁，是首位殉道的使徒之一。'],
+        ['约翰', '“主所爱的门徒”，强调爱与真理，传统上与《约翰福音》与《启示录》相关。'],
+        ['腓力', '主动邀请拿但业来见主，常提出实际问题，体现真实的求道心。'],
+        ['巴多罗买（拿但业）', '被称为心里没有诡诈的人，对耶稣有单纯而诚实的信心。'],
+        ['马太', '原是税吏，蒙召后跟随耶稣，传统上与《马太福音》相关。'],
+        ['多马', '曾因怀疑而被记住，却在遇见复活主后发出坚定信仰告白。'],
+        ['雅各（亚勒腓之子）', '又称“小雅各”，圣经记载较少，但同样忠心跟随主。'],
+        ['达太（犹大）', '也称犹大（非加略人），曾向耶稣提出有关显现的重要问题。'],
+        ['奋锐党的西门', '可能曾有强烈政治立场，后被主更新，成为福音见证者。'],
+        ['加略人犹大', '后来出卖耶稣，成为警醒人心的反面例子。']
+      ]
+    },
+    en: {
+      title: 'The 12 Apostles of Jesus',
+      subtitle: 'Different backgrounds, one calling: to follow Christ and witness the Gospel.',
+      back: '← Back Home',
+      apostles: [
+        ['Peter', 'A fisherman and key leader among the apostles. He denied Jesus but was restored and preached boldly.'],
+        ['Andrew', 'Peter’s brother who often brought people to Jesus with quiet faithfulness.'],
+        ['James (son of Zebedee)', 'Brother of John, part of Jesus’ close circle, and one of the first apostles martyred.'],
+        ['John', 'Known as the beloved disciple, remembered for emphasizing love and truth.'],
+        ['Philip', 'He invited Nathanael to Jesus and asked practical, honest questions.'],
+        ['Bartholomew (Nathanael)', 'Called sincere and without deceit, showing simple and genuine faith.'],
+        ['Matthew', 'A former tax collector who followed Jesus; traditionally linked with the Gospel of Matthew.'],
+        ['Thomas', 'Remembered for doubt, yet later confessed strong faith in the risen Christ.'],
+        ['James (son of Alphaeus)', 'Also called James the Less; little is recorded, but he remained among the faithful.'],
+        ['Thaddaeus (Jude)', 'Also called Jude (not Iscariot), known for asking Jesus an important question.'],
+        ['Simon the Zealot', 'Possibly once politically driven, later transformed into a witness of the Gospel.'],
+        ['Judas Iscariot', 'He betrayed Jesus and stands as a sobering warning to every generation.']
+      ]
+    }
+  };
 
+  let lang = 'zh';
+
+  function render() {
+    const t = data[lang];
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    document.getElementById('title').textContent = t.title;
+    document.getElementById('subtitle').textContent = t.subtitle;
+    document.getElementById('backBtn').textContent = t.back;
+
+    const grid = document.getElementById('apostlesGrid');
+    grid.innerHTML = t.apostles
+      .map(([name, desc]) => `<article class="card"><h3>${name}</h3><p>${desc}</p></article>`)
+      .join('');
+  }
+
+  document.getElementById('langZh').addEventListener('click', () => {
+    lang = 'zh';
+    document.getElementById('langZh').classList.add('active');
+    document.getElementById('langEn').classList.remove('active');
+    render();
+  });
+
+  document.getElementById('langEn').addEventListener('click', () => {
+    lang = 'en';
+    document.getElementById('langEn').classList.add('active');
+    document.getElementById('langZh').classList.remove('active');
+    render();
+  });
+
+  render();
+</script>
 </body>
 </html>

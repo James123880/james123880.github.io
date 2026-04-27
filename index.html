@@ -201,6 +201,8 @@
       <p id="prayerDesc">可切换中英文的主祷文，适合个人或小组祷告。</p>
       <button class="btn" onclick="location.href='prayer.html'" id="goPrayerBtn">进入主祷文</button>
       <a class="footer-link" href="matthew.html" id="goMatthewLink">阅读：马太福音第 1 章</a>
+      <br />
+      <a class="footer-link" href="story.html" id="goApostlesLink">阅读：耶稣的十二门徒</a>
     </article>
   </section>
 </div>
@@ -222,7 +224,8 @@
       prayerTitle: '🙏 主祷文页面',
       prayerDesc: '可切换中英文的主祷文，适合个人或小组祷告。',
       goPrayerBtn: '进入主祷文',
-      goMatthewLink: '阅读：马太福音第 1 章'
+      goMatthewLink: '阅读：马太福音第 1 章',
+      goApostlesLink: '阅读：耶稣的十二门徒'
     },
     en: {
       brand: '✝ Devotional Space',
@@ -239,7 +242,8 @@
       prayerTitle: '🙏 Lord’s Prayer Page',
       prayerDesc: 'Open a bilingual Lord’s Prayer page for personal or group prayer.',
       goPrayerBtn: 'Open Prayer Page',
-      goMatthewLink: 'Read: Matthew Chapter 1'
+      goMatthewLink: 'Read: Matthew Chapter 1',
+      goApostlesLink: 'Read: The 12 Apostles'
     }
   };
 
@@ -291,6 +295,7 @@
     document.getElementById('prayerDesc').textContent = t.prayerDesc;
     document.getElementById('goPrayerBtn').textContent = t.goPrayerBtn;
     document.getElementById('goMatthewLink').textContent = t.goMatthewLink;
+    document.getElementById('goApostlesLink').textContent = t.goApostlesLink;
     musicBtn.textContent = worshipOn ? t.musicBtnOff : t.musicBtnOn;
     renderVerse();
   }
