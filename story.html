@@ -1,154 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Story of Jesus</title>
-
-<style>
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background: url("https://images.unsplash.com/photo-1504052434569-70ad5836ab65")
-              no-repeat center center/cover;
-  color: white;
-}
-
-/* 黑色滤镜 */
-.overlay {
-  background: rgba(0,0,0,0.7);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* 内容 */
-.container {
-  max-width: 800px;
-  padding: 30px;
-  text-align: center;
-}
-
-/* 标题 */
-h1 {
-  font-size: 40px;
-  text-shadow: 0 0 15px rgba(255,255,255,0.7);
-}
-
-/* 段落 */
-p {
-  font-size: 18px;
-  line-height: 1.8;
-}
-
-/* 按钮 */
-.btn {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background: #0072ff;
-  border: none;
-  border-radius: 10px;
-  color: white;
-  cursor: pointer;
-}
-
-/* 评论区 */
-.comment-box {
-  margin-top: 30px;
-}
-
-input {
-  padding: 10px;
-  width: 70%;
-  border-radius: 8px;
-  border: none;
-}
-
-.comment {
-  margin-top: 10px;
-  background: rgba(255,255,255,0.1);
-  padding: 10px;
-  border-radius: 8px;
-}
-</style>
-</head>
-
-<body>
-
-<div class="overlay">
-  <div class="container">
-
-    <h1>The Story of Jesus</h1>
-
-    <p>
-      Jesus Christ was born in Bethlehem. His birth brought hope to the world.
-    </p>
-
-    <p>
-      He taught people about love, forgiveness, and the Kingdom of God.
-      He healed the sick and showed compassion to all.
-    </p>
-
-    <p>
-      Jesus was crucified on the cross, but on the third day, He rose again.
-      His resurrection gives hope of eternal life.
-    </p>
-
-    <!-- 👍 点赞 -->
-    <button class="btn" onclick="like()">👍 Like (<span id="likeCount">0</span>)</button>
-
-    <!-- 💬 评论 -->
-    <div class="comment-box">
-      <h3>Comments</h3>
-      <input type="text" id="commentInput" placeholder="Write a comment...">
-      <button class="btn" onclick="addComment()">Post</button>
-
-      <div id="comments"></div>
-    </div>
-
-    <br>
-    <a href="index.html" style="color:cyan;">⬅ Back Home</a>
-
-  </div>
-</div>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
 
 <script>
-// 👍 点赞功能（本地保存）
-let likes = localStorage.getItem("likes") || 0;
-document.getElementById("likeCount").innerText = likes;
+// 🔥 替换成你的 firebaseConfig
+const firebaseConfig = {
+  apiKey: "你的key",
+  authDomain: "你的domain",
+  projectId: "你的projectId"
+};
 
-function like() {
-  likes++;
-  localStorage.setItem("likes", likes);
-  document.getElementById("likeCount").innerText = likes;
-}
+// 初始化
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
 
-// 💬 评论功能（本地保存）
-let comments = JSON.parse(localStorage.getItem("comments")) || [];
-
-function displayComments() {
-  const box = document.getElementById("comments");
-  box.innerHTML = "";
-  comments.forEach(c => {
-    box.innerHTML += `<div class="comment">${c}</div>`;
-  });
-}
-
+// 发表评论
 function addComment() {
   const input = document.getElementById("commentInput");
-  if (input.value.trim() === "") return;
+  const text = input.value.trim();
+  if (!text) return;
 
-  comments.push(input.value);
-  localStorage.setItem("comments", JSON.stringify(comments));
+  db.collection("comments").add({
+    text: text,
+    time: new Date()
+  });
+
   input.value = "";
-  displayComments();
 }
 
-displayComments();
-</script>
+// 实时显示评论
+db.collection("comments")
+  .orderBy("time")
+  .onSnapshot(snapshot => {
+    const box = document.getElementById("comments");
+    box.innerHTML = "";
 
-</body>
-</html>
-<div class="block en">
+    snapshot.forEach(doc => {
+      const data = doc.data();
+      box.innerHTML += `<div class="comment">${data.text}</div>`;
+    });
+  });
+</script>
