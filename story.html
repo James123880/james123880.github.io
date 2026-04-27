@@ -54,3 +54,179 @@ db.collection("comments")
     });
   });
 </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>12 Apostles</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: white;
+  text-align: center;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.card {
+  background: #1e1e1e;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+button {
+  background: #4CAF50;
+  border: none;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #45a049;
+}
+
+.content {
+  display: none;
+  margin-top: 10px;
+  text-align: left;
+}
+</style>
+</head>
+
+<body>
+
+<h1>12 Apostles of Jesus</h1>
+
+<div class="container">
+
+  <!-- Peter -->
+  <div class="card">
+    <h3>Peter</h3>
+    <button onclick="toggle('peter')">Read More</button>
+    <div id="peter" class="content">
+      Leader of the apostles. A fisherman called by Jesus. Denied Jesus three times but later became a bold preacher. Traditionally believed to have been crucified upside down.
+    </div>
+  </div>
+
+  <!-- John -->
+  <div class="card">
+    <h3>John</h3>
+    <button onclick="toggle('john')">Read More</button>
+    <div id="john" class="content">
+      Known as the “beloved disciple.” Wrote the Gospel of John, Revelation, and letters. Emphasized love and truth.
+    </div>
+  </div>
+
+  <!-- James -->
+  <div class="card">
+    <h3>James (son of Zebedee)</h3>
+    <button onclick="toggle('james1')">Read More</button>
+    <div id="james1" class="content">
+      Brother of John. One of Jesus’ closest disciples. First apostle to be martyred (Acts 12).
+    </div>
+  </div>
+
+  <!-- Andrew -->
+  <div class="card">
+    <h3>Andrew</h3>
+    <button onclick="toggle('andrew')">Read More</button>
+    <div id="andrew" class="content">
+      Peter’s brother. Brought people to Jesus, including Peter. Traditionally crucified on an X-shaped cross.
+    </div>
+  </div>
+
+  <!-- Philip -->
+  <div class="card">
+    <h3>Philip</h3>
+    <button onclick="toggle('philip')">Read More</button>
+    <div id="philip" class="content">
+      Called by Jesus early. Helped bring Nathanael to Christ. Known for asking practical questions.
+    </div>
+  </div>
+
+  <!-- Bartholomew -->
+  <div class="card">
+    <h3>Bartholomew (Nathanael)</h3>
+    <button onclick="toggle('bartholomew')">Read More</button>
+    <div id="bartholomew" class="content">
+      Honest and faithful follower. Traditionally believed to have preached in Asia and been martyred.
+    </div>
+  </div>
+
+  <!-- Matthew -->
+  <div class="card">
+    <h3>Matthew</h3>
+    <button onclick="toggle('matthew')">Read More</button>
+    <div id="matthew" class="content">
+      Former tax collector. Author of the Gospel of Matthew. Left everything to follow Jesus.
+    </div>
+  </div>
+
+  <!-- Thomas -->
+  <div class="card">
+    <h3>Thomas</h3>
+    <button onclick="toggle('thomas')">Read More</button>
+    <div id="thomas" class="content">
+      Known as “Doubting Thomas.” Later showed great faith. Tradition says he preached in India.
+    </div>
+  </div>
+
+  <!-- James the Less -->
+  <div class="card">
+    <h3>James (son of Alphaeus)</h3>
+    <button onclick="toggle('james2')">Read More</button>
+    <div id="james2" class="content">
+      Called “James the Less.” Less is known about him, but he faithfully followed Jesus.
+    </div>
+  </div>
+
+  <!-- Thaddaeus -->
+  <div class="card">
+    <h3>Thaddaeus (Jude)</h3>
+    <button onclick="toggle('thaddaeus')">Read More</button>
+    <div id="thaddaeus" class="content">
+      Also called Jude. Asked Jesus important questions. Associated with the Epistle of Jude.
+    </div>
+  </div>
+
+  <!-- Simon -->
+  <div class="card">
+    <h3>Simon the Zealot</h3>
+    <button onclick="toggle('simon')">Read More</button>
+    <div id="simon" class="content">
+      Possibly part of a revolutionary group before following Jesus. Later became a missionary.
+    </div>
+  </div>
+
+  <!-- Judas -->
+  <div class="card">
+    <h3>Judas Iscariot</h3>
+    <button onclick="toggle('judas')">Read More</button>
+    <div id="judas" class="content">
+      Betrayed Jesus for thirty pieces of silver. Later died tragically.
+    </div>
+  </div>
+
+</div>
+
+<script>
+function toggle(id) {
+  var x = document.getElementById(id);
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+
+</body>
+</html>
