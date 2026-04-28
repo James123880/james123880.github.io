@@ -1,3 +1,25 @@
-<audio controls>
-  <source src="victory2.mp3" type="audio/mpeg">
+<audio id="audio" controls autoplay>
+  <source src="victory.mp3" type="audio/mpeg">
 </audio>
+
+<div id="subtitle"></div>
+
+<script>
+const audio = document.getElementById("audio");
+const subtitle = document.getElementById("subtitle");
+
+const subtitles = [
+  { time: 0, text: "You call me back again" },
+  { time: 5, text: "Your love will never end" },
+  { time: 10, text: "The cross shines in the night" }
+];
+
+audio.addEventListener("timeupdate", () => {
+  const t = audio.currentTime;
+  subtitles.forEach((s, i) => {
+    if (t >= s.time && (!subtitles[i + 1] || t < subtitles[i + 1].time)) {
+      subtitle.innerText = s.text;
+    }
+  });
+});
+</script>
