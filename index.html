@@ -43,3 +43,100 @@ body {
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>主祷文 The Lord's Prayer</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.box {
+    background: #222;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background: #444;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #666;
+}
+</style>
+
+<script>
+function showCN() {
+    document.getElementById("prayer").innerText = 
+`我们在天上的父，
+愿人都尊你的名为圣。
+愿你的国降临，
+愿你的旨意行在地上，如同行在天上。
+我们日用的饮食，今日赐给我们。
+免我们的债，如同我们免了人的债。
+不叫我们遇见试探，救我们脱离凶恶。
+因为国度、权柄、荣耀，全是你的，
+直到永远。阿们。`;
+}
+
+function showEN() {
+    document.getElementById("prayer").innerText = 
+`Our Father in heaven,
+hallowed be your name.
+Your kingdom come,
+your will be done,
+on earth as it is in heaven.
+Give us today our daily bread.
+Forgive us our debts,
+as we also have forgiven our debtors.
+And lead us not into temptation,
+but deliver us from the evil one.
+For yours is the kingdom,
+the power and the glory forever.
+Amen.`;
+}
+</script>
+
+</head>
+
+<body>
+
+<h1>主祷文 / The Lord's Prayer</h1>
+
+<div class="box" id="prayer">
+点击下面按钮切换语言
+</div>
+
+<button onclick="showCN()">中文</button>
+<button onclick="showEN()">English</button>
+
+<br><br>
+
+<audio controls>
+  <source src="victory.mp3" type="audio/mpeg">
+</audio>
+
+</body>
+</html>
