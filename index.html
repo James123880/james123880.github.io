@@ -1,150 +1,8 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>12门徒</title>
-<style>
-body {
-    font-family: Arial;
-    background: #111;
-    color: white;
-    text-align: center;
-}
-.card {
-    border: 1px solid #444;
-    margin: 10px;
-    padding: 15px;
-    border-radius: 10px;
-    background: #222;
-    cursor: pointer;
-}
-.card:hover {
-    background: #333;
-}
-</style>
-</head>
-
-<body>
-
-<h1>耶稣的12门徒</h1>
-
-<div class="card">彼得 Peter</div>
-<div class="card">约翰 John</div>
-<div class="card">雅各 James</div>
-<div class="card">安得烈 Andrew</div>
-<div class="card">腓力 Philip</div>
-<div class="card">巴多罗买 Bartholomew</div>
-<div class="card">马太 Matthew</div>
-<div class="card">多马 Thomas</div>
-<div class="card">雅各（亚勒腓之子）</div>
-<div class="card">达太 Thaddaeus</div>
-<div class="card">西门 Simon</div>
-<div class="card">犹大 Judas</div>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-<meta charset="UTF-8">
-<title>主祷文 The Lord's Prayer</title>
-
-<style>
-body {
-    font-family: Arial;
-    background: #111;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-h1 {
-    margin-bottom: 20px;
-}
-
-.box {
-    background: #222;
-    padding: 20px;
-    border-radius: 12px;
-    max-width: 600px;
-    margin: auto;
-    line-height: 1.8;
-    font-size: 18px;
-}
-
-button {
-    margin: 10px;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 8px;
-    background: #444;
-    color: white;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #666;
-}
-</style>
-
-<script>
-function showCN() {
-    document.getElementById("prayer").innerText = 
-`我们在天上的父，
-愿人都尊你的名为圣。
-愿你的国降临，
-愿你的旨意行在地上，如同行在天上。
-我们日用的饮食，今日赐给我们。
-免我们的债，如同我们免了人的债。
-不叫我们遇见试探，救我们脱离凶恶。
-因为国度、权柄、荣耀，全是你的，
-直到永远。阿们。`;
-}
-
-function showEN() {
-    document.getElementById("prayer").innerText = 
-`Our Father in heaven,
-hallowed be your name.
-Your kingdom come,
-your will be done,
-on earth as it is in heaven.
-Give us today our daily bread.
-Forgive us our debts,
-as we also have forgiven our debtors.
-And lead us not into temptation,
-but deliver us from the evil one.
-For yours is the kingdom,
-the power and the glory forever.
-Amen.`;
-}
-</script>
-
-</head>
-
-<body>
-
-<h1>主祷文 / The Lord's Prayer</h1>
-
-<div class="box" id="prayer">
-点击下面按钮切换语言
-</div>
-
-<button onclick="showCN()">中文</button>
-<button onclick="showEN()">English</button>
-
-<br><br>
-
-<audio controls>
-  <source src="victory.mp3" type="audio/mpeg">
-</audio>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-<meta charset="UTF-8">
-<title>主祷文滚动字幕</title>
+<title>The Story of Jesus</title>
 
 <style>
 body {
@@ -155,20 +13,26 @@ body {
     font-family: Arial;
 }
 
-/* 整个屏幕容器 */
+/* 容器 */
 .container {
     position: absolute;
     bottom: -100%;
     width: 100%;
     text-align: center;
-    animation: scrollUp 25s linear infinite;
+    animation: scrollUp 35s linear 1;
 }
 
-/* 字幕内容 */
+/* 文本 */
 .text {
-    font-size: 24px;
+    font-size: 22px;
     line-height: 2;
     padding: 0 20px;
+}
+
+/* 标题 */
+h1 {
+    font-size: 32px;
+    margin-bottom: 30px;
 }
 
 /* 滚动动画 */
@@ -189,36 +53,40 @@ body {
 <div class="container">
     <div class="text">
 
-        <h2>主祷文</h2>
+        <h1>The Story of Jesus</h1>
 
-        <p>我们在天上的父，</p>
-        <p>愿人都尊你的名为圣。</p>
-        <p>愿你的国降临，</p>
-        <p>愿你的旨意行在地上，如同行在天上。</p>
-        <p>我们日用的饮食，今日赐给我们。</p>
-        <p>免我们的债，如同我们免了人的债。</p>
-        <p>不叫我们遇见试探，救我们脱离凶恶。</p>
-        <p>因为国度、权柄、荣耀，全是你的，</p>
-        <p>直到永远。阿们。</p>
+        <p>He was born in a humble place, in Bethlehem.</p>
+        <p>No palace. No army. Just a promise.</p>
 
-        <br><br>
+        <p>He grew up quietly, until at about thirty,</p>
+        <p>he began to teach about love, forgiveness, and God.</p>
 
-        <h2>The Lord's Prayer</h2>
+        <p>Crowds followed him.</p>
+        <p>The sick were healed. The broken were restored.</p>
 
-        <p>Our Father in heaven,</p>
-        <p>hallowed be your name.</p>
-        <p>Your kingdom come,</p>
-        <p>your will be done,</p>
-        <p>on earth as it is in heaven.</p>
-        <p>Give us today our daily bread.</p>
-        <p>Forgive us our debts,</p>
-        <p>as we also have forgiven our debtors.</p>
-        <p>And lead us not into temptation,</p>
-        <p>but deliver us from evil.</p>
+        <p>At his final meal, he spoke of sacrifice.</p>
+        <p>That same night, he was betrayed.</p>
+
+        <p>He was arrested, mocked, and crucified.</p>
+        <p>It seemed like the end.</p>
+
+        <p>But three days later, the tomb was empty.</p>
+
+        <p>Fear turned into courage.</p>
+        <p>His followers went out into the world,</p>
+        <p>sharing a message of love and hope.</p>
+
+        <p>This story changed history forever.</p>
+
         <p>Amen.</p>
 
     </div>
 </div>
+
+<!-- 音乐（可选） -->
+<audio autoplay>
+  <source src="victory.mp3" type="audio/mpeg">
+</audio>
 
 </body>
 </html>
