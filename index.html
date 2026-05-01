@@ -140,3 +140,85 @@ Amen.`;
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>主祷文滚动字幕</title>
+
+<style>
+body {
+    margin: 0;
+    background: black;
+    color: white;
+    overflow: hidden;
+    font-family: Arial;
+}
+
+/* 整个屏幕容器 */
+.container {
+    position: absolute;
+    bottom: -100%;
+    width: 100%;
+    text-align: center;
+    animation: scrollUp 25s linear infinite;
+}
+
+/* 字幕内容 */
+.text {
+    font-size: 24px;
+    line-height: 2;
+    padding: 0 20px;
+}
+
+/* 滚动动画 */
+@keyframes scrollUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(-100%);
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+    <div class="text">
+
+        <h2>主祷文</h2>
+
+        <p>我们在天上的父，</p>
+        <p>愿人都尊你的名为圣。</p>
+        <p>愿你的国降临，</p>
+        <p>愿你的旨意行在地上，如同行在天上。</p>
+        <p>我们日用的饮食，今日赐给我们。</p>
+        <p>免我们的债，如同我们免了人的债。</p>
+        <p>不叫我们遇见试探，救我们脱离凶恶。</p>
+        <p>因为国度、权柄、荣耀，全是你的，</p>
+        <p>直到永远。阿们。</p>
+
+        <br><br>
+
+        <h2>The Lord's Prayer</h2>
+
+        <p>Our Father in heaven,</p>
+        <p>hallowed be your name.</p>
+        <p>Your kingdom come,</p>
+        <p>your will be done,</p>
+        <p>on earth as it is in heaven.</p>
+        <p>Give us today our daily bread.</p>
+        <p>Forgive us our debts,</p>
+        <p>as we also have forgiven our debtors.</p>
+        <p>And lead us not into temptation,</p>
+        <p>but deliver us from evil.</p>
+        <p>Amen.</p>
+
+    </div>
+</div>
+
+</body>
+</html>
