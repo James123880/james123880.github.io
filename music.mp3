@@ -1,0 +1,22 @@
+<audio id="audio" src="music.mp3"></audio>
+<h1>Hunger</h1>
+<h1 style="color:red; text-align:center;">Hunger</h1>
+<audio controls>
+  <source src="hunger.mp3" type="audio/mpeg">
+</audio>
+<p id="hunger">Hunger: 100</p>
+<button onclick="eat()">Eat</button>
+
+<script>
+let hunger = 100;
+
+function eat() {
+  hunger += 10;
+  document.getElementById("hunger").innerText = "Hunger: " + hunger;
+}
+
+setInterval(() => {
+  hunger -= 1;
+  document.getElementById("hunger").innerText = "Hunger: " + hunger;
+}, 1000);
+</script>
