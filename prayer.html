@@ -1,145 +1,86 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>主祷文 | The Lord's Prayer</title>
+<meta charset="UTF-8">
+<title>The Lord's Prayer</title>
+
 <style>
-  body {
-    margin: 0;
-    color: #f5fbff;
-    font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-    min-height: 100vh;
-    background:
-      linear-gradient(135deg, rgba(0,0,0,0.68), rgba(5,26,62,0.78)),
-      url('jesus.jpg') center/cover no-repeat fixed;
-    display: grid;
-    place-items: center;
-    padding: 24px;
-  }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #1e3c72, #2a5298);
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+}
 
-  .card {
-    width: min(920px, 100%);
-    border-radius: 22px;
-    border: 1px solid rgba(146, 224, 255, 0.28);
-    background: rgba(4, 14, 34, 0.66);
-    padding: 26px;
-    box-shadow: 0 30px 70px rgba(0,0,0,0.38);
-  }
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
 
-  .top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: rgba(0,0,0,0.4);
+  padding: 30px;
+  border-radius: 12px;
+}
 
-  h1 {
-    margin: 0;
-    font-size: clamp(1.7rem, 4vw, 2.3rem);
-    text-shadow: 0 0 14px rgba(126, 214, 255, 0.6);
-  }
+p {
+  line-height: 1.8;
+  font-size: 18px;
+}
 
-  .chip {
-    border: 1px solid rgba(146, 224, 255, 0.4);
-    background: rgba(8, 23, 53, 0.8);
-    color: #f5fbff;
-    border-radius: 999px;
-    padding: 10px 14px;
-    cursor: pointer;
-    margin-left: 8px;
-  }
-
-  .chip.active { box-shadow: 0 0 0 2px rgba(126,214,255,0.32); }
-
-  .prayer {
-    margin-top: 22px;
-    line-height: 2;
-    font-size: 1.05rem;
-    white-space: pre-line;
-  }
-
-  .actions { margin-top: 24px; }
-
-  a {
-    color: #b8ebff;
-    text-decoration: none;
-    border-bottom: 1px dashed rgba(184, 235, 255, 0.56);
-  }
+.cn {
+  margin-top: 20px;
+  color: #ffd;
+}
 </style>
 </head>
+
 <body>
-  <div class="card">
-    <div class="top">
-      <h1 id="title">🙏 主祷文</h1>
-      <div>
-        <button class="chip active" id="zhBtn">中文</button>
-        <button class="chip" id="enBtn">EN</button>
-      </div>
-    </div>
 
-    <div class="prayer" id="prayerText"></div>
+<h1>✝️ The Lord's Prayer</h1>
 
-    <div class="actions">
-      <a href="index.html" id="backHome">← 返回首页</a>
-    </div>
-  </div>
+<div class="container">
 
-<script>
-  const text = {
-    zh: {
-      title: '🙏 主祷文',
-      back: '← 返回首页',
-      prayer: `我们在天上的父：
-愿人都尊你的名为圣。
-愿你的国降临；愿你的旨意行在地上，如同行在天上。
-我们日用的饮食，今日赐给我们。
-免我们的债，如同我们免了人的债。
-不叫我们遇见试探；救我们脱离凶恶。
-因为国度、权柄、荣耀，全是你的，直到永远。阿们。`
-    },
-    en: {
-      title: '🙏 The Lord\'s Prayer',
-      back: '← Back Home',
-      prayer: `Our Father in heaven,
-Hallowed be Your name.
-Your kingdom come, Your will be done,
-on earth as it is in heaven.
-Give us this day our daily bread.
-And forgive us our debts,
-as we forgive our debtors.
-And lead us not into temptation,
-but deliver us from evil.
-For Yours is the kingdom and the power and the glory forever.
-Amen.`
-    }
-  };
+<p>
+Our Father which art in heaven,<br>
+Hallowed be thy name.<br><br>
 
-  let lang = 'zh';
+Thy kingdom come.<br>
+Thy will be done in earth, as it is in heaven.<br><br>
 
-  function render() {
-    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
-    document.getElementById('title').textContent = text[lang].title;
-    document.getElementById('prayerText').textContent = text[lang].prayer;
-    document.getElementById('backHome').textContent = text[lang].back;
-  }
+Give us this day our daily bread.<br><br>
 
-  document.getElementById('zhBtn').addEventListener('click', () => {
-    lang = 'zh';
-    document.getElementById('zhBtn').classList.add('active');
-    document.getElementById('enBtn').classList.remove('active');
-    render();
-  });
+And forgive us our debts, as we forgive our debtors.<br><br>
 
-  document.getElementById('enBtn').addEventListener('click', () => {
-    lang = 'en';
-    document.getElementById('enBtn').classList.add('active');
-    document.getElementById('zhBtn').classList.remove('active');
-    render();
-  });
+And lead us not into temptation,<br>
+but deliver us from evil:<br><br>
 
-  render();
-</script>
+For thine is the kingdom, and the power,<br>
+and the glory, for ever. Amen.
+</p>
+
+<p class="cn">
+我们在天上的父，<br>
+愿人都尊你的名为圣。<br><br>
+
+愿你的国降临；<br>
+愿你的旨意行在地上，如同行在天上。<br><br>
+
+我们日用的饮食，今日赐给我们。<br><br>
+
+免我们的债，如同我们免了人的债。<br><br>
+
+不叫我们遇见试探；<br>
+救我们脱离凶恶。<br><br>
+
+因为国度、权柄、荣耀，全是你的，直到永远。阿们。
+</p>
+
+</div>
+
 </body>
 </html>
