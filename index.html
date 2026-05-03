@@ -6,92 +6,76 @@
 
 <style>
 body {
-    margin: 0;
-    background: black;
-    color: white;
-    overflow: hidden;
-    font-family: Arial;
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+  color: white;
+  text-align: center;
+
+  /* 背景图 */
+  background-image: url("jesus.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
-/* 容器 */
-.container {
-    position: absolute;
-    bottom: -100%;
-    width: 100%;
-    text-align: center;
-    animation: scrollUp 35s linear 1;
+/* 黑色遮罩（让文字更清楚） */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: -1;
 }
 
-/* 文本 */
-.text {
-    font-size: 22px;
-    line-height: 2;
-    padding: 0 20px;
-}
-
-/* 标题 */
 h1 {
-    font-size: 32px;
-    margin-bottom: 30px;
+  margin-top: 100px;
+  font-size: 48px;
 }
 
-/* 滚动动画 */
-@keyframes scrollUp {
-    from {
-        transform: translateY(100%);
-    }
-    to {
-        transform: translateY(-100%);
-    }
+#subtitle {
+  margin-top: 30px;
+  font-size: 24px;
 }
 </style>
 
 </head>
-
 <body>
 
-<div class="container">
-    <div class="text">
+<h1>The Story of Jesus</h1>
 
-        <h1>The Story of Jesus</h1>
+<div id="subtitle">Loading...</div>
 
-        <p>He was born in a humble place, in Bethlehem.</p>
-        <p>No palace. No army. Just a promise.</p>
-
-        <p>He grew up quietly, until at about thirty,</p>
-        <p>he began to teach about love, forgiveness, and God.</p>
-
-        <p>Crowds followed him.</p>
-        <p>The sick were healed. The broken were restored.</p>
-
-        <p>At his final meal, he spoke of sacrifice.</p>
-        <p>That same night, he was betrayed.</p>
-
-        <p>He was arrested, mocked, and crucified.</p>
-        <p>It seemed like the end.</p>
-
-        <p>But three days later, the tomb was empty.</p>
-
-        <p>Fear turned into courage.</p>
-        <p>His followers went out into the world,</p>
-        <p>sharing a message of love and hope.</p>
-
-        <p>This story changed history forever.</p>
-
-        <p>Amen.</p>
-
-    </div>
-</div>
-
-<!-- 音乐（可选） -->
-<audio autoplay>
-  <source src="victory.mp3" type="audio/mpeg">
+<!-- 音乐 -->
+<audio id="audio" autoplay controls>
+  <source src="music.mp3" type="audio/mpeg">
 </audio>
+
+<script>
+const audio = document.getElementById("audio");
+const subtitle = document.getElementById("subtitle");
+
+const subtitles = [
+  { time: 0, text: "In the beginning, there was hope..." },
+  { time: 5, text: "A light came into the world..." },
+  { time: 10, text: "His name was Jesus..." },
+  { time: 15, text: "He brought love and salvation..." },
+  { time: 20, text: "The cross shines in the night..." },
+  { time: 25, text: "And hope lives forever..." }
+];
+
+audio.addEventListener("timeupdate", () => {
+  const t = audio.currentTime;
+
+  subtitles.forEach((s, i) => {
+    if (t >= s.time && (!subtitles[i + 1] || t < subtitles[i + 1].time)) {
+      subtitle.innerText = s.text;
+    }
+  });
+});
+</script>
 
 </body>
 </html>
-<style>
-body {
-    background: black;
-}
-</style>
